@@ -11,7 +11,7 @@ const StyledBox = styled(Box, {
   marginTop: theme.spacing(4),
 }));
 
-const year = new Date().getFullYear();
+// const year = new Date().getFullYear();
 
 const Footer = () => (
   <StyledBox>

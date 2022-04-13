@@ -11,7 +11,7 @@ type Props = {
   title?: string
 }
 
-const GridLayout = styled(Box)(({ theme }) => ({
+const GridLayout = styled(Box)({
   display: 'grid',
   height: '100%',
   gridTemplateRows: 'auto 1fr',
@@ -21,12 +21,12 @@ const GridLayout = styled(Box)(({ theme }) => ({
       "footer"
     `,
   gridAutoRows: 'minmax(min-content, max-content)',
-}));
+});
 
-const Main = styled(Box)(({ theme }) => ({
+const Main = styled(Box)({
   height: '100%',
   gridArea: 'content',
-}));
+});
 
 const Layout = ({ children, title = 'This is the default title' }: Props) => (
   <GridLayout>

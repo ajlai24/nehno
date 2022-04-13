@@ -1,7 +1,6 @@
-import { useState } from 'react';
-import { useRouter } from 'next/router';
-import { Tabs, Tab } from '@mui/material';
+import { Tab, Tabs } from '@mui/material';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 const Routes = {
   HOME: '/',

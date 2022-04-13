@@ -23,9 +23,8 @@ const StaticPropsDetail = ({ item, errors }: Props) => {
 
   return (
     <Layout
-      title={`${
-        item ? item.name : 'User Detail'
-      } | nehno.com`}
+      title={`${item ? item.name : 'User Detail'
+        } | nehno.com`}
     >
       {item && <ListDetail item={item} />}
     </Layout>
