@@ -1,38 +1,42 @@
-import { Tab, Tabs } from '@mui/material';
+import { Box, Link as MuiLink, styled } from '@mui/material';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import MobileMenu, { routes } from './MobileMenu.';
 
-const Routes = {
+export const Routes = {
   HOME: '/',
   TECH: '/tech',
   ABOUT: '/about',
 };
 
+const StyledLink = styled(MuiLink)(({ theme }) => ({
+  transition: '0.5s',
+  ':hover': {
+    color: theme.palette.primary.dark,
+  },
+}))
+
 const NavLinks = () => {
-  // const [value, setValue] = useState(Routes.HOME);
   const router = useRouter();
 
-  // const handleChange = (event: React.SyntheticEvent, newValue: string) => {
-  //   setValue(newValue);
-  //   router.push(newValue);
-  // };
-
   return (
-    <Tabs value={Object.values(Routes).indexOf(router.pathname)} aria-label="nav links">
-      <Link href="/" passHref>
-        <Tab value={Routes.HOME} label="Home" />
-      </Link>
-      <Link href="/tech" passHref>
-        <Tab value={Routes.TECH} label="Tech" />
-      </Link>
-      <Link href="/about" passHref>
-        <Tab value={Routes.ABOUT} label="About" />
-      </Link>
-    </Tabs>
-    // <Tabs value={value} onChange={handleChange} aria-label="nav links">
-    //   <Tab label="Home" value={Routes.HOME} />
-    //   <Tab label="About" value={Routes.ABOUT} />
-    // </Tabs>
+    <Box>
+      <MobileMenu />
+      <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+        {routes.map(({ name, label, path }) => (
+          <Link href={path} passHref key={name}>
+            <StyledLink
+              underline="none"
+              fontWeight="fontWeightLight"
+              color={router.pathname === path ? "primary" : "inherit"}
+              mr={4}
+            >
+              {label}
+            </StyledLink>
+          </Link>
+        ))}
+      </Box>
+    </Box>
   );
 };
 
