@@ -1,6 +1,9 @@
-import { createTheme } from '@mui/material';
+import { createTheme } from '@mui/material'
 
-let theme = createTheme({
+const theme = createTheme({
+  palette: {
+    // mode: 'dark',
+  },
   typography: {
     fontFamily: [
       'Noto Sans JP',
@@ -16,6 +19,6 @@ let theme = createTheme({
       '"Segoe UI Symbol"',
     ].join(','),
   },
-});
+})
 
-export default theme;
+export default theme

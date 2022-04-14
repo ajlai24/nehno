@@ -7,7 +7,7 @@ interface PageHeaderProps {
 }
 
 const StyledTypography = styled(Typography)(({ theme }) => ({
-  '::before': {
+  ':before': {
     borderLeft: `3rem solid ${theme.palette.primary.main}`,
     content: "''",
     display: 'block',

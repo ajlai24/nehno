@@ -1,19 +1,27 @@
+// import Brightness4Icon from '@mui/icons-material/Brightness4';
+// import Brightness7Icon from '@mui/icons-material/Brightness7';
 import CloseIcon from '@mui/icons-material/Close';
 import MenuIcon from '@mui/icons-material/Menu';
-import { Box, IconButton, List, ListItemButton, ListItemText, SwipeableDrawer } from '@mui/material';
+import {
+  Box, IconButton, List, ListItemButton, ListItemText, SwipeableDrawer,
+  // useTheme 
+} from '@mui/material';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { useState } from 'react';
+import {
+  // createContext, 
+  // useContext, 
+  useState
+} from 'react';
+import { routes } from '../utils/routes';
 
-export const routes = [
-  { name: 'home', label: 'Home', path: '/' },
-  { name: 'tech', label: 'Tech', path: '/tech' },
-  { name: 'about', label: 'About', path: '/about' }
-];
+// const ColorModeContext = createContext({ toggleColorMode: () => { } });
 
 const MobileMenu = () => {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const router = useRouter();
+  // const theme = useTheme();
+  // const colorMode = useContext(ColorModeContext);
 
   const toggleDrawer = (open: boolean) => (event: React.KeyboardEvent | React.MouseEvent) => {
     if (
@@ -28,7 +36,10 @@ const MobileMenu = () => {
   };
 
   return (
-    <Box sx={{ flexGrow: 1, justifyContent: 'flex-end', display: { xs: 'flex', md: 'none' } }}>
+    <Box sx={{ justifyContent: 'flex-end', display: { xs: 'flex', md: 'none' } }}>
+      {/* <IconButton size="large" onClick={colorMode.toggleColorMode} color="inherit">
+        {theme.palette.mode === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
+      </IconButton> */}
       <IconButton
         size="large"
         aria-label="Open Navigation Menu Button"

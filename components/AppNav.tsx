@@ -1,6 +1,6 @@
 import { AppBar, Box, Container, Link as MuiLink, styled, Toolbar, Typography } from '@mui/material';
 import Link from 'next/link';
-import NavLinks from './NavLinks';
+import NavLinks from './NavMenu';
 
 const StyledAppBar = styled(AppBar)(({ theme }) => ({
   boxShadow: 'none',
@@ -13,6 +13,9 @@ const StyledMuiLink = styled(MuiLink)(({ theme }) => ({
   borderRadius: theme.shape.borderRadius,
   color: theme.palette.primary.contrastText,
   padding: theme.spacing(0, 1),
+  // transition: theme.transitions.create(['color'], { duration: theme.transitions.duration.complex }),
+  ':hover': {
+  }
 }));
 
 const AppNav = () => (
