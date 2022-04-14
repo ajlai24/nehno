@@ -3,14 +3,6 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 
 const StyledLink = styled(MuiLink)(({ theme }) => ({
-  display: 'block',
-  padding: theme.spacing(1),
-  textDecoration: 'none',
-  color: theme.palette.primary.light,
-  fontWeight: theme.typography.fontWeightBold,
-  textTransform: 'uppercase',
-  margin: theme.spacing(0, 1),
-  position: 'relative',
   ':after': {
     transition: theme.transitions.create(['all'], { duration: theme.transitions.duration.complex }),
     position: 'absolute',
@@ -45,9 +37,13 @@ const NavLink = ({ name, path, label }: NavLinkProps) => {
     <Link href={path} passHref key={name}>
       <StyledLink
         underline="none"
-        fontWeight="fontWeightLight"
-        color={router.pathname === path ? "primary" : "inherit"}
-        mr={4}
+        color={router.pathname === path ? "primary.dark" : "primary.light"}
+        py={1}
+        ml={6}
+        textTransform="uppercase"
+        fontWeight="fontWeightBold"
+        display="block"
+        position="relative"
       >
         {label}
       </StyledLink>
