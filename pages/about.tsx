@@ -1,9 +1,8 @@
-import Image from 'next/image'
-import { Box, Container, Typography } from '@mui/material';
+import { Box, Container } from '@mui/material';
+import Image from 'next/image';
 import Layout from '../components/Layout';
 import SectionHeader from '../components/SectionHeader';
-import Section from '../components/Section';
-import workDesk from '../assets/workdesk.jpg'
+import workDesk from '../public/workdesk.jpg';
 
 const AboutPage = () => (
   <Layout title="About | nehno.com">
@@ -16,17 +15,6 @@ const AboutPage = () => (
           alt="Work Desk"
         />
       </Box>
-
-      <Section>
-        <Typography>
-        </Typography>
-        <Typography variant="subtitle1" color="grey.800" fontWeight="fontWeightLight">
-          My wife and I have a toddler that always says &quot;nehno!&quot; and we still don&apos;t know what it means. If it&apos;s easy enough for a toddler to say, I figured it&apos;d be easy enough for anyone to remember.
-        </Typography>
-        <Typography component="em">
-          Thanks for visiting!
-        </Typography>
-      </Section>
     </Container>
   </Layout>
 )

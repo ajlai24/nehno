@@ -9,9 +9,9 @@ const StyledAppBar = styled(AppBar)(({ theme }) => ({
 }));
 
 const StyledMuiLink = styled(MuiLink)(({ theme }) => ({
-  backgroundColor: theme.palette.primary.main,
+  // backgroundColor: theme.palette.primary.light,
   borderRadius: theme.shape.borderRadius,
-  color: theme.palette.primary.contrastText,
+  // color: theme.palette.primary.contrastText,
   padding: theme.spacing(0, 1),
   // transition: theme.transitions.create(['color'], { duration: theme.transitions.duration.complex }),
   ':hover': {
