@@ -1,6 +1,6 @@
 import { Box } from '@mui/material';
-import NavLink from './NavLink';
 import { routes } from '../utils/routes';
+import NavLink from './NavLink';
 
 const DesktopMenu = () => (
   <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>

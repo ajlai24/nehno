@@ -11,14 +11,16 @@ const NavLinks = () => {
   const { darkMode, toggleDarkMode } = useContext(ColorModeContext);
 
   return (
-    <Box display="flex">
-      <IconButton onClick={() => toggleDarkMode(!darkMode)} color="inherit">
-        {theme.palette.mode === 'dark' ? (
-          <Brightness7Icon />
-        ) : (
-          <Brightness4Icon />
-        )}
-      </IconButton>
+    <Box display="flex" alignItems="center">
+      <Box>
+        <IconButton onClick={() => toggleDarkMode(!darkMode)} color="inherit">
+          {theme.palette.mode === 'dark' ? (
+            <Brightness7Icon />
+          ) : (
+            <Brightness4Icon />
+          )}
+        </IconButton>
+      </Box>
       <MobileMenu />
       <DesktopMenu />
     </Box>
