@@ -26,27 +26,30 @@ const StyledMuiLink = styled(MuiLink)(({ theme }) => ({
 }));
 
 const AppNav = () => (
-  <StyledAppBar position="static" color="inherit">
-    <Container>
-      <Toolbar disableGutters>
-        <Box
-          display="flex"
-          alignItems="center"
-          justifyContent="space-between"
-          width="100%"
-        >
-          <Link href="/" passHref>
-            <StyledMuiLink underline="none">
-              <Typography variant="h4" noWrap>
-                nehno
-              </Typography>
-            </StyledMuiLink>
-          </Link>
-          <NavLinks />
-        </Box>
-      </Toolbar>
-    </Container>
-  </StyledAppBar>
+  <>
+    <StyledAppBar position="fixed" color="inherit">
+      <Container>
+        <Toolbar disableGutters>
+          <Box
+            display="flex"
+            alignItems="center"
+            justifyContent="space-between"
+            width="100%"
+          >
+            <Link href="/" passHref>
+              <StyledMuiLink underline="none">
+                <Typography variant="h4" noWrap>
+                  nehno
+                </Typography>
+              </StyledMuiLink>
+            </Link>
+            <NavLinks />
+          </Box>
+        </Toolbar>
+      </Container>
+    </StyledAppBar>
+    <Toolbar />
+  </>
 );
 
 export default AppNav;

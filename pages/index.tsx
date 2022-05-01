@@ -52,7 +52,7 @@ const IndexPage = () => {
         </Section>
         <Section
           sx={{
-            backgroundColor: (theme: Theme) => theme.palette.primary.light,
+            backgroundColor: (theme: Theme) => theme.palette.primary.dark,
           }}
         >
           <Container>
