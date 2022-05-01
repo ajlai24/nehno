@@ -1,13 +1,21 @@
-import { Container } from '@mui/material';
+import { Box, Container, Typography } from '@mui/material';
 import Layout from '../components/Layout';
-import SectionHeader from '../components/SectionHeader';
+import OverlineBox from '../components/OverlineBox';
+import Section from '../components/Section';
 
 const TechPage = () => (
   <Layout title="About | nehno.com">
-    <Container>
-      <SectionHeader title="Tech" />
-    </Container>
+    <Box>
+      <Section>
+        <Container>
+          <OverlineBox>
+            <Typography variant="h1" component="span"></Typography>
+          </OverlineBox>
+          https://github.com/ajlai24/nehno
+        </Container>
+      </Section>
+    </Box>
   </Layout>
-)
+);
 
 export default TechPage;

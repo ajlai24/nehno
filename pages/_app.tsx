@@ -1,13 +1,29 @@
 import { responsiveFontSizes, ThemeProvider } from '@mui/material';
 import CssBaseline from '@mui/material/CssBaseline';
+import { useEffect, useState } from 'react';
+import ColorModeContext from '../context/ColorModeContext';
 import '../styles/index.css';
-import theme from '../styles/theme';
+import { darkTheme, theme } from '../styles/theme';
 
 export default function MyApp({ Component, pageProps }) {
+  const [darkMode, setDarkMode] = useState(false);
+
+  useEffect(() => {
+    const mode = localStorage.getItem('mode') === 'true';
+    setDarkMode(mode);
+  }, []);
+
+  const toggleDarkMode = (newmode) => {
+    localStorage.setItem('mode', newmode);
+    setDarkMode(newmode);
+  };
+
   return (
-    <ThemeProvider theme={responsiveFontSizes(theme)}>
-      <CssBaseline />
-      <Component {...pageProps} />
-    </ThemeProvider>
+    <ColorModeContext.Provider value={{ darkMode, toggleDarkMode }}>
+      <ThemeProvider theme={responsiveFontSizes(darkMode ? darkTheme : theme)}>
+        <CssBaseline />
+        <Component {...pageProps} />
+      </ThemeProvider>
+    </ColorModeContext.Provider>
   );
 }

@@ -7,7 +7,7 @@ interface PageHeaderProps {
 }
 
 const StyledTypography = styled(Typography)(({ theme }) => ({
-  '::before': {
+  ':before': {
     borderLeft: `3rem solid ${theme.palette.primary.main}`,
     content: "''",
     display: 'block',
@@ -18,8 +18,14 @@ const StyledTypography = styled(Typography)(({ theme }) => ({
 
 const SectionHeader = ({ title, subtitle }: PageHeaderProps) => (
   <Section>
-    <StyledTypography variant="h4" fontWeight="fontWeightBold">{title}</StyledTypography>
-    {subtitle && <Typography variant="h6" mt={2} color="grey.500">{subtitle}</Typography>}
+    <StyledTypography variant="h4" fontWeight="fontWeightBold">
+      {title}
+    </StyledTypography>
+    {subtitle && (
+      <Typography variant="h6" mt={2} color="grey.500">
+        {subtitle}
+      </Typography>
+    )}
   </Section>
 );
 

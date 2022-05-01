@@ -7,9 +7,9 @@ import AppNav from './AppNav';
 import Footer from './Footer';
 
 type Props = {
-  children?: ReactNode
-  title?: string
-}
+  children?: ReactNode;
+  title?: string;
+};
 
 const GridLayout = styled(Box)({
   display: 'grid',
@@ -45,15 +45,13 @@ const Layout = ({ children, title = 'This is the default title' }: Props) => (
     <AppNav />
     <Main>
       <TransitionGroup>
-        <Fade timeout={750}>
-          <Box>
-            {children}
-          </Box>
+        <Fade timeout={500}>
+          <Box>{children}</Box>
         </Fade>
       </TransitionGroup>
     </Main>
     <Footer />
   </GridLayout>
-)
+);
 
-export default Layout
+export default Layout;
