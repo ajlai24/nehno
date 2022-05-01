@@ -1,4 +1,12 @@
-import { AppBar, Box, Container, Link as MuiLink, styled, Toolbar, Typography } from '@mui/material';
+import {
+  AppBar,
+  Box,
+  Container,
+  Link as MuiLink,
+  styled,
+  Toolbar,
+  Typography,
+} from '@mui/material';
 import Link from 'next/link';
 import NavLinks from './NavMenu';
 
@@ -14,21 +22,22 @@ const StyledMuiLink = styled(MuiLink)(({ theme }) => ({
   // color: theme.palette.primary.contrastText,
   padding: theme.spacing(0, 1),
   // transition: theme.transitions.create(['color'], { duration: theme.transitions.duration.complex }),
-  ':hover': {
-  }
+  ':hover': {},
 }));
 
 const AppNav = () => (
   <StyledAppBar position="static" color="inherit">
     <Container>
       <Toolbar disableGutters>
-        <Box display="flex" alignItems="center" justifyContent="space-between" width="100%">
+        <Box
+          display="flex"
+          alignItems="center"
+          justifyContent="space-between"
+          width="100%"
+        >
           <Link href="/" passHref>
             <StyledMuiLink underline="none">
-              <Typography
-                variant="h4"
-                noWrap
-              >
+              <Typography variant="h4" noWrap>
                 nehno
               </Typography>
             </StyledMuiLink>
