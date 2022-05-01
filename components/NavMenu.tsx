@@ -13,7 +13,11 @@ const NavLinks = () => {
   return (
     <Box display="flex" alignItems="center">
       <Box>
-        <IconButton onClick={() => toggleDarkMode(!darkMode)} color="inherit">
+        <IconButton
+          onClick={() => toggleDarkMode(!darkMode)}
+          color="inherit"
+          size="small"
+        >
           {theme.palette.mode === 'dark' ? (
             <Brightness7Icon />
           ) : (

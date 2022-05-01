@@ -12,6 +12,10 @@ const AboutPage = () => (
         subtitle="Andrew is a software developer who lives in the San Francisco Bay Area"
       />
 
+      What is nehno?
+
+      Interests
+      
       <Box mt={4}>
         <Image src={workDesk} placeholder="blur" alt="Work Desk" />
       </Box>
