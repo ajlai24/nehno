@@ -39,7 +39,7 @@ const MobileMenu = () => {
         aria-controls="menu-appbar"
         aria-haspopup="true"
         onClick={toggleDrawer(true)}
-        color="inherit"
+        color="primary"
       >
         <MenuIcon />
       </IconButton>

@@ -13,16 +13,22 @@ const Hero = () => (
           <Typography
             variant="h1"
             component="span"
-            color="primary"
+            color="primary.dark"
             fontWeight="fontWeightBold"
           >
             Nehno
           </Typography>
         </Typography>
-        <Typography variant="h4" fontWeight="lighter" mt={2}>
-          This is my playground for trying out frontend technologies. This site
-          is using Next.js, Vercel, MUI, and Typescript.
-        </Typography>
+        <Box mt={2}>
+          <Typography variant="h4" fontWeight="lighter" component="span">
+            Hi, I&apos;m{' '}
+            <Typography color="primary.dark" component="span" variant="h4">
+              Andrew Lai
+            </Typography>
+            ! This is my playground for web development. This site is using
+            Next.js, Vercel, MUI, and Typescript
+          </Typography>
+        </Box>
         <Box>
           <NextLink href="/tech" passHref>
             <Button

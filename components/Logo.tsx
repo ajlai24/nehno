@@ -23,7 +23,7 @@ const StyledMuiLink = styled(MuiLink)(({ theme }) => {
       ':after': basePseudo,
       ':nth-of-type(1)': {
         ':before': {
-          background: theme.palette.primary.light,
+          background: theme.palette.primary.dark,
           transformOrigin: 'top',
           transform: 'rotateX(90deg) translateY(-50%)',
           borderRadius: theme.shape.borderRadius,
