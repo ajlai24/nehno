@@ -1,72 +1,77 @@
-import { Box, Container, Grid, Typography } from '@mui/material';
+import { Container, Grid, Typography } from '@mui/material';
 import CardButton from './CardButton';
+import OverlineBox from './OverlineBox';
 import Section from './Section';
 
 const cards = [
   {
     id: 'react',
     header: 'React',
-    subheader: 'Test',
+    subheader: 'A JavaScript library for building user interfaces',
     url: 'https://www.reactjs.org',
     avatarSrc: 'reactLogo.svg',
   },
   {
     id: 'mui',
     header: 'MUI',
-    subheader: 'test',
+    subheader: 'A very comprehensive suite of UI Tools and component library',
     url: 'https://mui.com/',
     avatarSrc: 'muiLogo.svg',
   },
   {
     id: 'storybook',
     header: 'Storybook',
-    subheader: 'test',
+    subheader:
+      'One of my favorite tools to build, preview, and test UI components',
     url: 'https://storybook.js.org/',
     avatarSrc: 'storybookLogo.png',
   },
   {
     id: 'webpack',
     header: 'Webpack',
-    subheader: 'test',
+    subheader: 'Powerful and highly configurable module bundler',
     url: 'https://webpack.js.org/',
     avatarSrc: 'webpackLogo.svg',
   },
   {
     id: 'typescript',
     header: 'Typescript',
-    subheader: 'test',
+    subheader: 'Strongly typed javascript',
     url: 'https://www.typescriptlang.org/',
     avatarSrc: 'tsLogo.svg',
   },
   {
     id: 'nodejs',
     header: 'Node.js',
-    subheader: 'test',
+    subheader:
+      'A JavaScript runtime for scalable network applications',
     url: 'https://nodejs.org/',
     avatarSrc: 'nodejsLogo.svg',
   },
   {
     id: 'graphql',
     header: 'GraphQL',
-    subheader: 'test',
+    subheader: 'Great query language so the client can request exactly what it needs',
     url: 'https://graphql.org/',
     avatarSrc: 'graphqlLogo.svg',
   },
   {
-    id: 'sourcetree',
-    header: 'Sourcetree',
-    subheader: 'test',
-    url: 'https://www.sourcetreeapp.com/',
-    avatarSrc: 'sourcetreeLogo.svg',
+    id: 'reactrouter',
+    header: 'React Router',
+    subheader: 'Easy to use React routing library',
+    url: 'https://reactrouter.com/',
+    avatarSrc: 'reactrouterLogo.svg',
   },
 ];
 
 const TechInterestsSection = () => (
   <Section>
     <Container>
-      <Box>
-        <Typography variant="h4">Stuff I work with</Typography>
-      </Box>
+      <OverlineBox sx={{ px: 10 }}>
+        <Typography variant="h4" color="primary.dark">
+          Tech and tools I like to work with
+        </Typography>
+      </OverlineBox>
       <Grid container spacing={4} mt={2}>
         {cards.map((card) => (
           <Grid xs={12} sm={6} md={4} lg={3} item key={card.id}>
