@@ -1,4 +1,5 @@
-import { Box, Container, Grid, styled, Theme, Typography } from '@mui/material';
+import { Box, Container, Grid, styled, Typography } from '@mui/material';
+import { blue } from '@mui/material/colors';
 import Image from 'next/image';
 import Section from '../components/Section';
 import DuettoLogo from '../public/duettoLogo.svg';
@@ -19,7 +20,10 @@ const StyledBox = styled(Box)(({ theme }) => ({
 const CompaniesSection = () => (
   <Section
     sx={{
-      backgroundColor: (theme: Theme) => theme.palette.primary.dark,
+      backgroundColor: (theme) =>
+        theme.palette.mode === 'dark'
+          ? theme.palette.background.paper
+          : blue[900],
     }}
   >
     <Container>
@@ -72,9 +76,14 @@ const CompaniesSection = () => (
           </StyledBox>
         </Grid>
       </Grid>
-      <Typography textAlign="center" color="primary.contrastText" mt={6}>
+      <Typography
+        textAlign="center"
+        color="common.white"
+        mt={6}
+        fontWeight="lighter"
+      >
         {today.getFullYear() - 2008} years of experience at different sized
-        companies
+        companies working with a diverse range of brilliant people
       </Typography>
     </Container>
   </Section>

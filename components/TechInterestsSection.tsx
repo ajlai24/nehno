@@ -6,7 +6,7 @@ const cards = [
   {
     id: 'react',
     header: 'React',
-    subheader: 'test',
+    subheader: 'Test',
     url: 'https://www.reactjs.org',
     avatarSrc: 'reactLogo.svg',
   },
