@@ -8,7 +8,6 @@ const StyledBox = styled(Box, {
   backgroundColor: theme.palette.primary.light,
   color: theme.palette.primary.contrastText,
   padding: theme.spacing(6, 0),
-  marginTop: theme.spacing(4),
 }));
 
 // const year = new Date().getFullYear();
