@@ -5,7 +5,6 @@ import NavLinks from './NavMenu';
 const StyledAppBar = styled(AppBar)(({ theme }) => ({
   boxShadow: 'none',
   borderBottom: `1px solid ${theme.palette.grey[300]}`,
-  gridArea: 'header',
 }));
 
 const AppNav = () => (

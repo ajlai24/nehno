@@ -1,5 +1,4 @@
 import { Box, Fade } from '@mui/material';
-import { styled } from '@mui/material/styles';
 import Head from 'next/head';
 import React, { ReactNode } from 'react';
 import { TransitionGroup } from 'react-transition-group';
@@ -11,25 +10,8 @@ type Props = {
   title?: string;
 };
 
-const GridLayout = styled(Box)({
-  display: 'grid',
-  height: '100%',
-  gridTemplateRows: 'auto 1fr',
-  gridTemplateAreas: `
-      "header"
-      "content"
-      "footer"
-    `,
-  gridAutoRows: 'minmax(min-content, max-content)',
-});
-
-const Main = styled(Box)({
-  height: '100%',
-  gridArea: 'content',
-});
-
 const Layout = ({ children, title = 'This is the default title' }: Props) => (
-  <GridLayout>
+  <Box minHeight="100%">
     <Head>
       <title>{title}</title>
       <link rel="shortcut icon" href="/images/favicon.ico" />
@@ -55,21 +37,21 @@ const Layout = ({ children, title = 'This is the default title' }: Props) => (
       <style>
         {`
             #__next {
-              height: 100%;
+              min-height: 100%;
             }
           `}
       </style>
     </Head>
     <AppNav />
-    <Main>
+    <Box minHeight="100%">
       <TransitionGroup>
         <Fade timeout={500}>
           <Box>{children}</Box>
         </Fade>
       </TransitionGroup>
-    </Main>
+    </Box>
     <Footer />
-  </GridLayout>
+  </Box>
 );
 
 export default Layout;
