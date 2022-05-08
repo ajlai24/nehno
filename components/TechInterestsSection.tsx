@@ -34,13 +34,6 @@ const cards = [
     avatarSrc: 'webpackLogo.svg',
   },
   {
-    id: 'typescript',
-    header: 'Typescript',
-    subheader: 'Strongly typed javascript',
-    url: 'https://www.typescriptlang.org/',
-    avatarSrc: 'tsLogo.svg',
-  },
-  {
     id: 'nodejs',
     header: 'Node.js',
     subheader:
@@ -61,6 +54,13 @@ const cards = [
     subheader: 'Easy to use React routing library',
     url: 'https://reactrouter.com/',
     avatarSrc: 'reactrouterLogo.svg',
+  },
+  {
+    id: 'typescript',
+    header: 'Typescript',
+    subheader: 'Strongly typed javascript',
+    url: 'https://www.typescriptlang.org/',
+    avatarSrc: 'tsLogo.svg',
   },
 ];
 

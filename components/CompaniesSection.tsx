@@ -19,12 +19,16 @@ const StyledBox = styled(Box)(({ theme }) => ({
 
 const CompaniesSection = () => (
   <Section
-    sx={{
-      backgroundColor: (theme) =>
+    sx={(theme) => ({
+      backgroundColor:
         theme.palette.mode === 'dark'
           ? theme.palette.background.paper
           : blue[900],
-    }}
+      padding: {
+        md: theme.spacing(18, 0),
+        lg: theme.spacing(20, 0),
+      },
+    })}
   >
     <Container>
       <Grid
@@ -80,6 +84,13 @@ const CompaniesSection = () => (
         textAlign="center"
         color="common.white"
         mt={6}
+        sx={(theme) => ({
+          marginTop: {
+            sm: theme.spacing(6),
+            md: theme.spacing(8),
+            lg: theme.spacing(12),
+          },
+        })}
         fontWeight="lighter"
       >
         {today.getFullYear() - 2008} years of experience at different sized
