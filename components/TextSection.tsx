@@ -18,7 +18,7 @@ const TextSection = ({
   >
     <Divider sx={{ pt: 4 }} />
     <Box pt={3}>
-      <Typography variant="h6" fontWeight="fontWeightBold">
+      <Typography variant="h5" fontWeight="fontWeightBold">
         {header}
       </Typography>
       <Box pt={3} pb={2}>

@@ -1,6 +1,6 @@
-import { Avatar, Box, Paper, styled, Typography } from '@mui/material';
+import { Paper, styled } from '@mui/material';
 
-const StyledPaper = styled(Paper)(({ theme }) => ({
+const CardButton = styled(Paper)(({ theme }) => ({
   padding: theme.spacing(2.5),
   display: 'flex',
   height: '100%',
@@ -10,41 +10,43 @@ const StyledPaper = styled(Paper)(({ theme }) => ({
   },
 })) as typeof Paper;
 
-interface CardButtonProps {
-  header: string;
-  subheader: string;
-  url: string;
-  avatarSrc?: string;
-}
-
-const StyledAvatar = styled(Avatar)({
-  '.MuiAvatar-img': { objectFit: 'scale-down' },
-});
-
-const CardButton = (props: CardButtonProps) => {
-  const { header, subheader, url, avatarSrc } = props;
-  return (
-    <StyledPaper
-      variant="outlined"
-      component="a"
-      href={url}
-      target="_blank"
-      rel="sponsored noopener"
-    >
-      <StyledAvatar
-        alt={header}
-        src={avatarSrc}
-        srcSet={avatarSrc}
-        variant="square"
-      />
-      <Box ml={2.5}>
-        <Typography variant="body2" fontWeight="bold">
-          {header}
-        </Typography>
-        <Typography variant="body2">{subheader}</Typography>
-      </Box>
-    </StyledPaper>
-  );
-};
-
 export default CardButton;
+
+// interface CardButtonProps {
+//   header: string;
+//   subheader: string;
+//   url: string;
+//   avatarSrc?: string;
+// }
+
+// const StyledAvatar = styled(Avatar)({
+//   '.MuiAvatar-img': { objectFit: 'scale-down' },
+// });
+
+// const CardButton = (props: CardButtonProps) => {
+//   const { header, subheader, url, avatarSrc } = props;
+//   return (
+//     <StyledPaper
+//       variant="outlined"
+//       component="a"
+//       href={url}
+//       target="_blank"
+//       rel="sponsored noopener"
+//     >
+//       <StyledAvatar
+//         alt={header}
+//         src={avatarSrc}
+//         srcSet={avatarSrc}
+//         variant="square"
+//       />
+//       <Box ml={2.5}>
+//         <Typography variant="body2" fontWeight="bold">
+//           {header}
+//         </Typography>
+//         <Typography variant="body2">{subheader}</Typography>
+//       </Box>
+//     </StyledPaper>
+//   );
+// };
+
+// export default CardButton;

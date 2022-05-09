@@ -1,5 +1,5 @@
 import { Container, Grid, Typography } from '@mui/material';
-import CardButton from './CardButton';
+import TechCardButton from './TechCardButton';
 import OverlineBox from './OverlineBox';
 import Section from './Section';
 
@@ -36,15 +36,15 @@ const cards = [
   {
     id: 'nodejs',
     header: 'Node.js',
-    subheader:
-      'A JavaScript runtime for scalable network applications',
+    subheader: 'A JavaScript runtime for scalable network applications',
     url: 'https://nodejs.org/',
     avatarSrc: 'nodejsLogo.svg',
   },
   {
     id: 'graphql',
     header: 'GraphQL',
-    subheader: 'Great query language so the client can request exactly what it needs',
+    subheader:
+      'Great query language so the client can request exactly what it needs',
     url: 'https://graphql.org/',
     avatarSrc: 'graphqlLogo.svg',
   },
@@ -75,7 +75,7 @@ const TechInterestsSection = () => (
       <Grid container spacing={4} mt={2}>
         {cards.map((card) => (
           <Grid xs={12} sm={6} md={4} lg={3} item key={card.id}>
-            <CardButton {...card} />
+            <TechCardButton {...card} />
           </Grid>
         ))}
       </Grid>

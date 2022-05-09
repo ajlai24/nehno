@@ -36,7 +36,6 @@ const NavLink = ({ name, path, label }: NavLinkProps) => {
   return (
     <Link href={path} passHref key={name}>
       <StyledLink
-        underline="none"
         color={router.pathname === path ? "primary.dark" : "primary.light"}
         py={1}
         ml={6}
