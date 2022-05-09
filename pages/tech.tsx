@@ -285,14 +285,13 @@ const TechPage = (props: Props) => (
                   Material UI, now known as just MUI
                 </Link>
                 . It&apos;s really a full suite of components that makes it
-                really easy and quick to develop. It's got theming, darkmode,
+                really easy and quick to develop. It&apos;s got theming, darkmode,
                 responsive media queries, and lots of components all of which
                 are fully customizable
               </Paragraph>
               <Typography>
                 bootstrap, foundation, tailwind, css modules
               </Typography>
-              <Typography>puppeteer</Typography>
             </TextSection>
 
             <TextSection header={anchors[4].label} id={anchors[4].id}>
