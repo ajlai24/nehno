@@ -15,13 +15,7 @@ const StyledAvatar = styled(Avatar)({
 const TechCardButton = (props: CardButtonProps) => {
   const { header, subheader, url, avatarSrc } = props;
   return (
-    <CardButton
-      variant="outlined"
-      component="a"
-      href={url}
-      target="_blank"
-      rel="sponsored noopener"
-    >
+    <CardButton href={url}>
       <StyledAvatar
         alt={header}
         src={avatarSrc}
@@ -29,7 +23,7 @@ const TechCardButton = (props: CardButtonProps) => {
         variant="square"
       />
       <Box ml={2.5}>
-        <Typography variant="body2" fontWeight="bold">
+        <Typography variant="body2" fontWeight="fontWeightBold">
           {header}
         </Typography>
         <Typography variant="body2">{subheader}</Typography>
