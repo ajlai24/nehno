@@ -1,4 +1,12 @@
-import { createTheme } from '@mui/material';
+import { createTheme, ThemeOptions } from '@mui/material';
+
+const components: ThemeOptions['components'] = {
+  MuiLink: {
+    defaultProps: {
+      underline: 'none',
+    },
+  },
+};
 
 const baseTheme = {
   typography: {
@@ -16,6 +24,7 @@ const baseTheme = {
       '"Segoe UI Symbol"',
     ].join(','),
   },
+  components,
 };
 
 const theme = createTheme(baseTheme);
