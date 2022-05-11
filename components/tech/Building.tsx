@@ -20,7 +20,7 @@ const Building = () => {
           narrowing. Each has its pros and cons
         </Paragraph>
 
-        <Card sx={{ display: 'flex', padding: 2, mb: 3 }}>
+        <Card sx={{ display: 'flex', padding: 2, mb: 3 }} variant="outlined">
           <Grid container alignItems="center">
             <Grid item xs={12} sm={8} lg={9}>
               I ended up choosing{' '}
