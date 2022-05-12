@@ -4,7 +4,9 @@ import { useRouter } from 'next/router';
 
 const StyledLink = styled(MuiLink)(({ theme }) => ({
   ':after': {
-    transition: theme.transitions.create(['all'], { duration: theme.transitions.duration.complex }),
+    transition: theme.transitions.create(['all'], {
+      duration: theme.transitions.duration.complex,
+    }),
     position: 'absolute',
     bottom: 0,
     left: 0,
@@ -22,7 +24,7 @@ const StyledLink = styled(MuiLink)(({ theme }) => ({
       width: '100%',
     },
   },
-}))
+}));
 
 interface NavLinkProps {
   name: string;
@@ -36,9 +38,9 @@ const NavLink = ({ name, path, label }: NavLinkProps) => {
   return (
     <Link href={path} passHref key={name}>
       <StyledLink
-        color={router.pathname === path ? "primary.dark" : "primary.light"}
+        color={router.pathname === path ? 'primary.dark' : 'primary.light'}
         py={1}
-        ml={6}
+        ml={5}
         textTransform="uppercase"
         fontWeight="fontWeightBold"
         display="block"
@@ -51,4 +53,3 @@ const NavLink = ({ name, path, label }: NavLinkProps) => {
 };
 
 export default NavLink;
-

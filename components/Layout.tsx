@@ -10,7 +10,7 @@ type Props = {
   title?: string;
 };
 
-const Layout = ({ children, title = 'This is the default title' }: Props) => (
+const Layout = ({ children, title = 'nehno.com' }: Props) => (
   <Box minHeight="100%">
     <Head>
       <title>{title}</title>
@@ -34,6 +34,20 @@ const Layout = ({ children, title = 'This is the default title' }: Props) => (
       />
       <meta charSet="utf-8" />
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+
+      <meta name="title" content={title} />
+      <meta name="description" content="" />
+      <meta property="og:type" content="website" />
+      <meta property="og:url" content="https://nehno.com/" />
+      <meta property="og:title" content={title} />
+      <meta property="og:description" content="A frontend developer's playground for learning and experimentation" />
+      <meta property="og:image" content="" />
+      <meta property="twitter:card" content="summary_large_image" />
+      <meta property="twitter:url" content="https://nehno.com/" />
+      <meta property="twitter:title" content={title} />
+      <meta property="twitter:description" content="A frontend developer's playground for learning and experimentation" />
+      <meta property="twitter:image" content="" />
+
       <style>
         {`
             #__next {

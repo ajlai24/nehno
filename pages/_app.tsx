@@ -9,6 +9,7 @@ export default function MyApp({ Component, pageProps }) {
   const [darkMode, setDarkMode] = useState(false);
 
   useEffect(() => {
+    localStorage.setItem('appState', 'initialized');
     const mode = localStorage.getItem('mode') === 'true';
     setDarkMode(mode);
   }, []);

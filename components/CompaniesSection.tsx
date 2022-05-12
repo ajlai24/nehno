@@ -69,13 +69,17 @@ const CompaniesSection = () => (
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Image
-                src={strideLogo}
-                placeholder="blur"
-                alt="Stride"
-                layout="fill"
-                objectFit="contain"
-              />
+              <div
+                style={{ position: 'relative', width: '100%', height: '100%' }}
+              >
+                <Image
+                  src={strideLogo}
+                  placeholder="blur"
+                  alt="Stride"
+                  layout="fill"
+                  objectFit="contain"
+                />
+              </div>
             </a>
           </StyledBox>
         </Grid>
