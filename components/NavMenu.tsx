@@ -1,5 +1,5 @@
-import Brightness4Icon from '@mui/icons-material/Brightness4';
-import Brightness7Icon from '@mui/icons-material/Brightness7';
+import DarkModeIcon from '@mui/icons-material/DarkMode';
+import LightModeIcon from '@mui/icons-material/LightMode';
 import { Box, IconButton, useTheme } from '@mui/material';
 import { useContext } from 'react';
 import ColorModeContext from '../context/ColorModeContext';
@@ -17,13 +17,11 @@ const NavLinks = () => {
           onClick={() => toggleDarkMode(!darkMode)}
           color="inherit"
           size="small"
+          sx={{ mr: { xs: 1, md: 3 } }}
         >
-          {theme.palette.mode === 'dark' ? (
-            <Brightness7Icon />
-          ) : (
-            <Brightness4Icon />
-          )}
+          {theme.palette.mode === 'dark' ? <LightModeIcon /> : <DarkModeIcon />}
         </IconButton>
+        |
       </Box>
       <MobileMenu />
       <DesktopMenu />

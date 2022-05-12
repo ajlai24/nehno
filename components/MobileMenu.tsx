@@ -6,7 +6,7 @@ import {
   List,
   ListItemButton,
   ListItemText,
-  SwipeableDrawer,
+  SwipeableDrawer
 } from '@mui/material';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
@@ -33,6 +33,7 @@ const MobileMenu = () => {
   return (
     <Box
       sx={{ justifyContent: 'flex-end', display: { xs: 'flex', md: 'none' } }}
+      ml={1}
     >
       <IconButton
         aria-label="Open Navigation Menu Button"
