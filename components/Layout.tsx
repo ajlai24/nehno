@@ -11,7 +11,7 @@ type Props = {
 };
 
 const Layout = ({ children, title = 'nehno.com' }: Props) => (
-  <Box minHeight="100%">
+  <Box display="flex" flexDirection="column" height="100%">
     <Head>
       <title>{title}</title>
       <link rel="shortcut icon" href="/images/favicon.ico" />
@@ -40,24 +40,34 @@ const Layout = ({ children, title = 'nehno.com' }: Props) => (
       <meta property="og:type" content="website" />
       <meta property="og:url" content="https://nehno.com/" />
       <meta property="og:title" content={title} />
-      <meta property="og:description" content="A frontend developer's playground for learning and experimentation" />
+      <meta
+        property="og:description"
+        content="A frontend developer's playground for learning and experimentation"
+      />
       <meta property="og:image" content="" />
       <meta property="twitter:card" content="summary_large_image" />
       <meta property="twitter:url" content="https://nehno.com/" />
       <meta property="twitter:title" content={title} />
-      <meta property="twitter:description" content="A frontend developer's playground for learning and experimentation" />
+      <meta
+        property="twitter:description"
+        content="A frontend developer's playground for learning and experimentation"
+      />
       <meta property="twitter:image" content="" />
 
       <style>
         {`
             #__next {
-              min-height: 100%;
+              height: 100%;
             }
           `}
       </style>
     </Head>
     <AppNav />
-    <Box minHeight="100%">
+    <Box
+      sx={{
+        flex: '1 1 auto',
+      }}
+    >
       <TransitionGroup>
         <Fade timeout={500}>
           <Box>{children}</Box>

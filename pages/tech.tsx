@@ -5,8 +5,8 @@ import useScrollTrigger from '@mui/material/useScrollTrigger';
 import Zoom from '@mui/material/Zoom';
 import Layout from '../components/Layout';
 import Link from '../components/Link';
-import OverlineBox from '../components/OverlineBox';
 import Section from '../components/Section';
+import SectionHeader from '../components/SectionHeader';
 import TableOfContents from '../components/TableOfContents';
 import Building from '../components/tech/Building';
 import Deployments from '../components/tech/Deployments';
@@ -106,14 +106,10 @@ const TechPage = (props: Props) => (
       <Container>
         <Box display="flex">
           <Box pr={2}>
-            <OverlineBox id="back-to-top-anchor">
-              <Typography variant="h3" component="span">
-                Tech talk
-              </Typography>
-              <Typography mt={2} color="text.secondary">
-                A place to describe all the nifty stuff used to build this site
-              </Typography>
-            </OverlineBox>
+            <SectionHeader
+              title="Tech talk"
+              subtitle="A place to describe all the nifty stuff used to build this site"
+            />
 
             {anchors.map(({ id, label, children }) => (
               <TextSection key={id} header={label} id={id}>
