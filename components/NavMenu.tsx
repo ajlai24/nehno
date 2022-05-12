@@ -1,6 +1,6 @@
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 import LightModeIcon from '@mui/icons-material/LightMode';
-import { Box, IconButton, useTheme } from '@mui/material';
+import { Box, Divider, IconButton, useTheme } from '@mui/material';
 import { useContext } from 'react';
 import ColorModeContext from '../context/ColorModeContext';
 import DesktopMenu from './DesktopMenu';
@@ -12,17 +12,15 @@ const NavLinks = () => {
 
   return (
     <Box display="flex" alignItems="center">
-      <Box>
-        <IconButton
-          onClick={() => toggleDarkMode(!darkMode)}
-          color="inherit"
-          size="small"
-          sx={{ mr: { xs: 1, md: 3 } }}
-        >
-          {theme.palette.mode === 'dark' ? <LightModeIcon /> : <DarkModeIcon />}
-        </IconButton>
-        |
-      </Box>
+      <IconButton
+        onClick={() => toggleDarkMode(!darkMode)}
+        color="inherit"
+        size="small"
+        sx={{ mr: { xs: 1, md: 4 } }}
+      >
+        {theme.palette.mode === 'dark' ? <LightModeIcon /> : <DarkModeIcon />}
+      </IconButton>
+      <Divider orientation="vertical" variant="middle" flexItem />
       <MobileMenu />
       <DesktopMenu />
     </Box>

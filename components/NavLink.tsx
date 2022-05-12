@@ -40,7 +40,7 @@ const NavLink = ({ name, path, label }: NavLinkProps) => {
       <StyledLink
         color={router.pathname === path ? 'primary.dark' : 'primary.light'}
         py={1}
-        ml={3}
+        ml={5}
         textTransform="uppercase"
         fontWeight="fontWeightBold"
         display="block"
