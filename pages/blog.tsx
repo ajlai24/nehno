@@ -12,7 +12,7 @@ import Section from '../components/Section';
 import SectionHeader from '../components/SectionHeader';
 
 const SkeletonCard = () => (
-  <Card sx={{ maxWidth: 345 }}>
+  <Card>
     <CardHeader
       avatar={
         <Skeleton animation="wave" variant="circular" width={40} height={40} />
