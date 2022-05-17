@@ -24,9 +24,7 @@ const TableOfContents = ({ anchors }: { anchors: AnchorInfo[] }) => {
         {anchors.map((anchorInfo) => (
           <Box key={anchorInfo.id} mt={1}>
             <Link href={`#${anchorInfo.id}`} passHref>
-              <MuiLink variant="body2" sx={{ textDecoration: 'none' }}>
-                {anchorInfo.label}
-              </MuiLink>
+              <MuiLink variant="subtitle1">{anchorInfo.label}</MuiLink>
             </Link>
           </Box>
         ))}

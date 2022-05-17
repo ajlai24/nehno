@@ -12,7 +12,7 @@ const components: ThemeOptions['components'] = {
 const baseTheme = {
   typography: {
     fontFamily: [
-      'Noto Sans JP',
+      'Poppins',
       '-apple-system',
       'BlinkMacSystemFont',
       '"Segoe UI"',

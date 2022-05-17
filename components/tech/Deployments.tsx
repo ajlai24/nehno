@@ -57,7 +57,7 @@ const Deployments = () => {
         Having worked for Salesforce, I&apos;ve tried Heroku in the past and
         while it was pretty hands off and easy as well, the free version will
         sleep after 30 minutes of inactivity. That means the first person to
-        access the site after that 30 minutes of activity will see a very
+        access the site after that 30 minutes of inactivity will see a very
         extended initial load time. Obviously this{' '}
         <Link href="https://www.heroku.com/pricing#containers">
           pricing model

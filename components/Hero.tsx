@@ -5,10 +5,10 @@ import OverlineBox from '../components/OverlineBox';
 import Section from '../components/Section';
 
 const Hero = () => (
-  <Section>
+  <Section sx={{ py: { lg: 20 } }}>
     <Container>
       <OverlineBox>
-        <Typography variant="h1" component="span">
+        <Typography variant="h1" fontWeight="fontWeightBold">
           Welcome to{' '}
           <Typography
             variant="h1"
@@ -23,7 +23,7 @@ const Hero = () => (
           <Typography variant="h4" fontWeight="lighter" component="span">
             Hi, I&apos;m{' '}
             <Typography color="primary.dark" component="span" variant="h4">
-              Andrew Lai
+              Andrew
             </Typography>
             ! This is my playground for web development. This site is using
             Next.js, Vercel, MUI, and Typescript

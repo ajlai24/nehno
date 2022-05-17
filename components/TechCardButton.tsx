@@ -23,7 +23,7 @@ const TechCardButton = (props: CardButtonProps) => {
         variant="square"
       />
       <Box ml={2.5}>
-        <Typography variant="body2" fontWeight="fontWeightBold">
+        <Typography variant="body1" fontWeight="fontWeightBold">
           {header}
         </Typography>
         <Typography variant="body2">{subheader}</Typography>
