@@ -57,6 +57,7 @@ const AboutPage = () => (
                 height={800}
                 layout="responsive"
                 objectFit="cover"
+                placeholder="blur"
               />
             </Box>
           </Grid>
@@ -67,7 +68,7 @@ const AboutPage = () => (
                 component="span"
                 fontWeight="fontWeightBold"
               >
-                Hi there! I&apos;m{' '}
+                Hello! I&apos;m{' '}
               </Typography>
               <Typography
                 variant="h2"
@@ -115,7 +116,7 @@ const AboutPage = () => (
             alignItems="center"
           >
             <Box maxWidth="40rem">
-              <Image src={workDesk} alt="Work Desk" />
+              <Image src={workDesk} alt="Work Desk" placeholder="blur" />
             </Box>
           </Grid>
         </Grid>
