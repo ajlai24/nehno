@@ -4,9 +4,11 @@ import {
   CardContent,
   CardHeader,
   Container,
+  Fade,
   Grid,
   Skeleton,
 } from '@mui/material';
+import { TransitionGroup } from 'react-transition-group';
 import Layout from '../components/Layout';
 import Section from '../components/Section';
 import SectionHeader from '../components/SectionHeader';
@@ -38,7 +40,7 @@ const SkeletonCard = () => (
 );
 
 const BlogPage = () => (
-  <Layout title="About | nehno.com">
+  <Layout title="Blog | nehno.com">
     <Section>
       <Container>
         <SectionHeader title="Blog" subtitle="Coming soon" />
@@ -47,7 +49,19 @@ const BlogPage = () => (
           <Grid container spacing={4}>
             {Array.from(new Array(6)).map((item, index) => (
               <Grid item key={index} xs={12} sm={6} md={4}>
-                <SkeletonCard />
+                <TransitionGroup key={index}>
+                  <Fade
+                    timeout={1000}
+                    style={{
+                      transformOrigin: 'top left',
+                      transitionDelay: `${200 * index}ms`,
+                    }}
+                  >
+                    <Box>
+                      <SkeletonCard />
+                    </Box>
+                  </Fade>
+                </TransitionGroup>
               </Grid>
             ))}
           </Grid>

@@ -101,7 +101,7 @@ function ScrollTop(props: Props) {
 }
 
 const TechPage = (props: Props) => (
-  <Layout title="About | nehno.com">
+  <Layout title="Tech | nehno.com">
     <Section>
       <Container>
         <Box display="flex">

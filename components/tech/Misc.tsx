@@ -44,7 +44,7 @@ const cards = [
       <Typography>
         There was a time where I was perfectly content with using eslint as it
         can do some formatting along with its semantic analysis but now I use
-        both Prettier and eslint. Here&apos;s my{' '}
+        both Prettier and eslint. Here&apos;s this project&apos;s{' '}
         <Link href="https://github.com/ajlai24/nehno/blob/main/.prettierrc.json">
           simple prettier config
         </Link>{' '}

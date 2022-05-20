@@ -1,8 +1,20 @@
-import { Link as MuiLink, styled } from '@mui/material';
+import {
+  Link as MuiLink,
+  LinkProps as MuiLinkProps,
+  styled,
+} from '@mui/material';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
-const StyledLink = styled(MuiLink)(({ theme }) => ({
+interface StyledLinkProps extends MuiLinkProps {
+  selected: boolean;
+}
+
+const StyledLink = styled(MuiLink, {
+  shouldForwardProp: (prop) => prop !== 'selected',
+})<StyledLinkProps>(({ theme, selected }) => ({
+  color: selected ? theme.palette.primary.dark : theme.palette.primary.light,
+  fontWeight: selected ? 800 : 600,
   ':after': {
     transition: theme.transitions.create(['all'], {
       duration: theme.transitions.duration.complex,
@@ -38,10 +50,9 @@ const NavLink = ({ name, path, label }: NavLinkProps) => {
   return (
     <Link href={path} passHref key={name}>
       <StyledLink
-        color={router.pathname === path ? 'primary.dark' : 'primary.light'}
+        selected={router.pathname === path}
         py={1}
         ml={5}
-        textTransform="uppercase"
         fontWeight="fontWeightBold"
         display="block"
         position="relative"

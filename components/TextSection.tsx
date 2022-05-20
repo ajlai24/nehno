@@ -5,10 +5,12 @@ const TextSection = ({
   children,
   header,
   id,
+  divider = true,
 }: {
   children: ReactNode;
   header: string;
   id?: string;
+  divider?: boolean;
 }) => (
   <Box
     id={id}
@@ -16,7 +18,7 @@ const TextSection = ({
       scrollMarginTop: (theme) => theme.spacing(4),
     }}
   >
-    <Divider sx={{ pt: 4 }} />
+    {divider && <Divider sx={{ pt: 4 }} />}
     <Box pt={3}>
       <Typography variant="h5" fontWeight="fontWeightBold">
         {header}
