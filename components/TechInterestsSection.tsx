@@ -1,7 +1,8 @@
 import { Container, Grid, Typography } from '@mui/material';
-import TechCardButton from './TechCardButton';
+import { motion } from 'framer-motion';
 import OverlineBox from './OverlineBox';
 import Section from './Section';
+import TechCardButton from './TechCardButton';
 
 const cards = [
   {
@@ -73,9 +74,25 @@ const TechInterestsSection = () => (
         </Typography>
       </OverlineBox>
       <Grid container spacing={4} mt={2}>
-        {cards.map((card) => (
+        {cards.map((card, index) => (
           <Grid xs={12} sm={6} md={4} lg={3} item key={card.id}>
-            <TechCardButton {...card} />
+            <motion.div
+              initial={{
+                opacity: 0,
+                scale: 0,
+                transformOrigin: 'center',
+                height: '100%',
+              }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{
+                duration: 0.9,
+                ease: [0.4, 0, 0.2, 1],
+                delay: 0.1 * index,
+              }}
+            >
+              <TechCardButton {...card} />
+            </motion.div>
           </Grid>
         ))}
       </Grid>

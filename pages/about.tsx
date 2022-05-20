@@ -11,6 +11,7 @@ import {
   Theme,
   Typography,
 } from '@mui/material';
+import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { ReactNode } from 'react';
 import Layout from '../components/Layout';
@@ -37,20 +38,31 @@ const AboutParagraph = ({
 const AboutHero = () => (
   <Grid container spacing={{ xs: 4, lg: 6 }} display="flex" alignItems="center">
     <Grid item xs={12} lg={4} order={{ xs: 2, lg: 1 }}>
-      <Avatar
-        alt="Andrew Lai"
-        src="/profile.jpg"
-        sx={(theme) => ({
-          width: 320,
-          height: 320,
-          borderColor:
-            theme.palette.mode === 'dark'
-              ? theme.palette.background.paper
-              : theme.palette.grey[300],
-          boxShadow: 3,
-          margin: { xs: 'auto', lg: 0 },
-        })}
-      />
+      <motion.div
+        initial={{
+          opacity: 0,
+          scale: 0,
+          transformOrigin: 'top left',
+        }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.9, ease: [0.4, 0, 0.2, 1] }}
+      >
+        <Avatar
+          alt="Andrew Lai"
+          src="/profile.jpg"
+          sx={(theme) => ({
+            width: 320,
+            height: 320,
+            borderColor:
+              theme.palette.mode === 'dark'
+                ? theme.palette.background.paper
+                : theme.palette.grey[300],
+            boxShadow: 3,
+            margin: { xs: 'auto', lg: 0 },
+          })}
+        />
+      </motion.div>
     </Grid>
     <Grid item xs={12} lg={8} order={{ xs: 1, lg: 2 }}>
       <Box>
@@ -114,9 +126,20 @@ const ContactCard = () => (
 const WorkExperience = () => (
   <Grid container spacing={{ xs: 4, lg: 8 }} alignItems="center">
     <Grid item xs={12} lg={6} display="flex" justifyContent="center">
-      <Box maxWidth="40rem" sx={{ background: 'white', p: 2, boxShadow: 2 }}>
-        <Image src={workDesk} alt="Work Desk" placeholder="blur" />
-      </Box>
+      <motion.div
+        initial={{
+          opacity: 0,
+          scale: 0,
+          transformOrigin: 'center',
+        }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 1, ease: [0.4, 0, 0.2, 1] }}
+      >
+        <Box maxWidth="40rem" sx={{ background: 'white', p: 2, boxShadow: 2 }}>
+          <Image src={workDesk} alt="Work Desk" placeholder="blur" />
+        </Box>
+      </motion.div>
     </Grid>
     <Grid item xs={12} lg={6}>
       <Typography variant="h3" sx={{ pb: 4 }} textAlign="center">
@@ -158,21 +181,32 @@ const Background = () => (
       </AboutParagraph>
     </Grid>
     <Grid item xs={12} lg={4}>
-      <Avatar
-        variant="rounded"
-        alt="Andrew Lai"
-        src="/kumo.jpg"
-        sx={(theme) => ({
-          margin: 'auto',
-          width: 250,
-          height: 250,
-          borderColor:
-            theme.palette.mode === 'dark'
-              ? theme.palette.background.paper
-              : theme.palette.grey[300],
-          boxShadow: 3,
-        })}
-      />
+      <motion.div
+        initial={{
+          opacity: 0,
+          scale: 0,
+          transformOrigin: 'bottom right',
+        }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 1, ease: [0.4, 0, 0.2, 1], delay: 0.1 }}
+      >
+        <Avatar
+          variant="rounded"
+          alt="Andrew Lai"
+          src="/kumo.jpg"
+          sx={(theme) => ({
+            margin: 'auto',
+            width: 250,
+            height: 250,
+            borderColor:
+              theme.palette.mode === 'dark'
+                ? theme.palette.background.paper
+                : theme.palette.grey[300],
+            boxShadow: 3,
+          })}
+        />
+      </motion.div>
     </Grid>
   </Grid>
 );

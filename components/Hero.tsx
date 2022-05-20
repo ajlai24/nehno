@@ -1,5 +1,6 @@
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import { Box, Button, Container, Typography } from '@mui/material';
+import { motion } from 'framer-motion';
 import NextLink from 'next/link';
 import OverlineBox from '../components/OverlineBox';
 import Section from '../components/Section';
@@ -10,14 +11,27 @@ const Hero = () => (
       <OverlineBox>
         <Typography variant="h1" fontWeight="fontWeightBold">
           Welcome to{' '}
-          <Typography
-            variant="h1"
-            component="span"
-            color="primary.dark"
-            fontWeight="fontWeightBold"
+          <motion.span
+            initial={{
+              opacity: 0,
+            }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{
+              duration: 1.5,
+              ease: [0.4, 0, 0.2, 1],
+              delay: 0.2,
+            }}
           >
-            Nehno
-          </Typography>
+            <Typography
+              variant="h1"
+              component="span"
+              color="primary.dark"
+              fontWeight="fontWeightBold"
+            >
+              Nehno
+            </Typography>
+          </motion.span>
         </Typography>
         <Box mt={2}>
           <Typography variant="h4" fontWeight="lighter" component="span">
