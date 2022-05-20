@@ -4,7 +4,11 @@ import NavLinks from './NavMenu';
 
 const StyledAppBar = styled(AppBar)(({ theme }) => ({
   boxShadow: 'none',
-  borderBottom: `1px solid ${theme.palette.grey[300]}`,
+  borderBottom: `1px solid ${
+    theme.palette.mode === 'dark'
+      ? theme.palette.divider
+      : theme.palette.grey[300]
+  }`,
 }));
 
 const AppNav = () => (
