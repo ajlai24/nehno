@@ -88,6 +88,7 @@ const AboutHero = () => (
           href="https://www.linkedin.com/in/devajlai/"
           target="_blank"
           rel="sponsored noopener"
+          size="large"
         >
           Say hello!
         </Button>
