@@ -40,7 +40,7 @@ const SkeletonCard = () => (
 );
 
 const BlogPage = () => (
-  <Layout title="Blog | nehno.com">
+  <Layout title="Blog | nehno.com" meta="blog">
     <Section>
       <Container>
         <SectionHeader title="Blog" subtitle="Coming soon" />

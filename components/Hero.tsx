@@ -9,7 +9,7 @@ const Hero = () => (
   <Section sx={{ py: { lg: 20 } }}>
     <Container>
       <OverlineBox>
-        <Typography variant="h1" fontWeight="fontWeightBold">
+        <Typography variant="h1" component="div" fontWeight="fontWeightBold">
           Welcome to{' '}
           <motion.span
             initial={{
@@ -25,9 +25,9 @@ const Hero = () => (
           >
             <Typography
               variant="h1"
-              component="span"
               color="primary.dark"
               fontWeight="fontWeightBold"
+              sx={{ display: 'inline'}}
             >
               Nehno
             </Typography>

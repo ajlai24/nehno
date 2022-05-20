@@ -213,7 +213,7 @@ const Background = () => (
 );
 
 const AboutPage = () => (
-  <Layout title="About | nehno.com">
+  <Layout title="About | nehno.com" meta="about">
     <Section sx={{ py: { lg: 24 } }}>
       <Container>
         <AboutHero />
