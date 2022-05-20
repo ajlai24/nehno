@@ -25,8 +25,8 @@ const CompaniesSection = () => (
           ? theme.palette.background.paper
           : blue[900],
       py: {
-        md: 18,
-        lg: 20,
+        md: 16,
+        lg: 18,
       },
     })}
   >

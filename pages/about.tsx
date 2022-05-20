@@ -48,6 +48,7 @@ const AboutHero = () => (
               ? theme.palette.background.paper
               : theme.palette.grey[300],
           boxShadow: 3,
+          margin: { xs: 'auto', lg: 0 },
         })}
       />
     </Grid>
