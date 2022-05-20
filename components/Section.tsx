@@ -1,22 +1,35 @@
-import { Box, styled } from '@mui/material';
-import { ReactNode } from 'react';
+import { Box, BoxProps, styled } from '@mui/material';
 
-interface SectionProps {
-  children?: ReactNode;
+interface SectionProps extends BoxProps {
+  inset?: boolean;
 }
 
-const StyledBox = styled(Box)(({ theme }) => ({
-  padding: theme.spacing(2, 0, 0),
+const StyledBox = styled(Box, {
+  shouldForwardProp: (prop) => prop !== 'inset',
+})<SectionProps>(({ theme, inset }) => ({
+  padding: theme.spacing(6, 0),
+  ...(inset && {
+    background:
+      theme.palette.mode === 'dark'
+        ? theme.palette.background.paper
+        : theme.palette.grey[100],
+    boxShadow: 'inset 0px 1px 4px 0px rgb(0 0 0 / 10%)',
+    borderBottom: `1px solid ${
+      theme.palette.mode === 'dark'
+        ? theme.palette.grey[900]
+        : theme.palette.grey[300]
+    }`,
+  }),
   [theme.breakpoints.up('md')]: {
-    padding: theme.spacing(8, 20, 0),
+    padding: theme.spacing(8, 0),
   },
   [theme.breakpoints.up('lg')]: {
-    padding: theme.spacing(12, 20, 0),
+    padding: theme.spacing(12, 0),
   },
 }));
 
-const Section = ({ children }: SectionProps) => (
-  <StyledBox>
+const Section = ({ children, sx = [], inset = false }: SectionProps) => (
+  <StyledBox inset={inset} sx={[...(Array.isArray(sx) ? sx : [sx])]}>
     {children}
   </StyledBox>
 );

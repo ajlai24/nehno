@@ -4,7 +4,15 @@
 //
 // import { User } from 'path/to/interfaces';
 
+import { ReactNode } from 'react';
+
 export type User = {
-  id: number
-  name: string
-}
+  id: number;
+  name: string;
+};
+
+export type AnchorInfo = {
+  id: string;
+  label: string;
+  children: ReactNode;
+};
