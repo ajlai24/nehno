@@ -1,18 +1,32 @@
-// You can include shared interfaces/types in a separate file
-// and then use them in any component by importing them. For
-// example, to import the interface below do:
-//
-// import { User } from 'path/to/interfaces';
-
 import { ReactNode } from 'react';
-
-export type User = {
-  id: number;
-  name: string;
-};
+import { RichTextContent } from '@graphcms/rich-text-types';
 
 export type AnchorInfo = {
   id: string;
   label: string;
   children: ReactNode;
+};
+
+export type Image = {
+  url: string;
+};
+
+export type Author = {
+  picture: Image;
+  name: string;
+};
+
+export type Content = {
+  raw: RichTextContent;
+};
+
+export type Post = {
+  authors: Author[];
+  content: Content;
+  coverImage: Image;
+  ogImage: Image;
+  date: string;
+  excerpt: string;
+  slug: string;
+  title: string;
 };

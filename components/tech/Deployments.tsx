@@ -1,7 +1,7 @@
 import { Box, Typography, useTheme } from '@mui/material';
-import VercelLogo from '../../public/vercel-logotype-dark.svg';
-import CardButton from '../CardButton';
-import Link from '../Link';
+import VercelLogo from 'public/vercel-logotype-dark.svg';
+import CardButton from 'components/CardButton';
+import Link from 'components/Link';
 import Paragraph from './Paragraph';
 
 const Deployments = () => {

@@ -27,7 +27,7 @@ const Hero = () => (
               variant="h1"
               color="primary.dark"
               fontWeight="fontWeightBold"
-              sx={{ display: 'inline'}}
+              sx={{ display: 'inline' }}
             >
               Nehno
             </Typography>
@@ -35,11 +35,7 @@ const Hero = () => (
         </Typography>
         <Box mt={2}>
           <Typography variant="h4" fontWeight="lighter" component="span">
-            Hi, I&apos;m{' '}
-            <Typography color="primary.dark" component="span" variant="h4">
-              Andrew
-            </Typography>
-            ! This is my playground for web development. This site is using
+            This is a playground for web development. This site is using
             Next.js, Vercel, MUI, and Typescript
           </Typography>
         </Box>
