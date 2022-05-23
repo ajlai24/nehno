@@ -115,7 +115,7 @@ export async function getPostAndMorePosts(slug, preview) {
           raw
         }
         coverImage {
-          url(transformation: {image: {resize: {fit: clip, height: 190, width: 360}}})
+          url(transformation: {image: {resize: {fit: clip, height: 1000, width: 2000}}})
         }
         ogImage: coverImage {
           url(transformation: {image: {resize: {fit: crop, width: 1200, height: 630}}})
@@ -123,7 +123,7 @@ export async function getPostAndMorePosts(slug, preview) {
         authors {
           name
           picture {
-            url(transformation: {image: {resize: {fit: clip, height: 40, width: 40}}})
+            url(transformation: {image: {resize: {fit: clip, height: 80, width: 80}}})
           }
         }
       }

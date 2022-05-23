@@ -1,5 +1,6 @@
 import {
   Avatar,
+  AvatarGroup,
   Card,
   CardActionArea,
   CardContent,
@@ -19,19 +20,25 @@ const BlogPostCard = ({
   slug,
   title,
 }: Post) => {
-  const firstAuthor = authors[0];
-  const avatarSrc = firstAuthor.picture.url;
-  const authorName = firstAuthor.name;
   const href = `/posts/${slug}`;
 
   return (
     <Link href={href} passHref>
       <Card sx={{ height: '100%' }}>
-        <CardActionArea href={href}>
+        <CardActionArea href={href} sx={{ height: '100%' }}>
           <CardHeader
             avatar={
-              firstAuthor ? (
-                <Avatar alt={authorName} src={avatarSrc} />
+              authors?.length > 0 ? (
+                // <Avatar alt={authorName} src={avatarSrc} />
+                <AvatarGroup max={2}>
+                  {authors.map((author) => (
+                    <Avatar
+                      key={author.name}
+                      alt={author.name}
+                      src={author.picture.url}
+                    />
+                  ))}
+                </AvatarGroup>
               ) : (
                 <Skeleton
                   animation="wave"
@@ -51,9 +58,11 @@ const BlogPostCard = ({
             layout="responsive"
             src={url}
           />
-          <CardContent>
-            <Typography>{excerpt}</Typography>
-          </CardContent>
+          {excerpt && (
+            <CardContent>
+              <Typography>{excerpt}</Typography>
+            </CardContent>
+          )}
         </CardActionArea>
       </Card>
     </Link>

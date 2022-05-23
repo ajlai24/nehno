@@ -28,7 +28,7 @@ const AppNav = () => (
         </Toolbar>
       </Container>
     </StyledAppBar>
-    <Toolbar />
+    <Toolbar id="back-to-top-anchor"/>
   </>
 );
 

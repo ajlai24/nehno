@@ -1,6 +1,7 @@
 import {
   Box,
   Link,
+  styled,
   Table,
   TableBody,
   TableCell,
@@ -8,6 +9,8 @@ import {
   TableRow,
   Typography,
 } from '@mui/material';
+
+const StyledTypography = styled(Typography)({ marginBottom: '1.25rem' });
 
 const renderers = {
   a: ({ children, href, openInNewTab }) => (
@@ -19,13 +22,15 @@ const renderers = {
       {children}
     </Link>
   ),
-  h1: ({ children }) => <Typography variant="h1">{children}</Typography>,
-  h2: ({ children }) => <Typography variant="h2">{children}</Typography>,
-  h3: ({ children }) => <Typography variant="h3">{children}</Typography>,
-  h4: ({ children }) => <Typography variant="h4">{children}</Typography>,
-  h5: ({ children }) => <Typography variant="h5">{children}</Typography>,
-  h6: ({ children }) => <Typography variant="h6">{children}</Typography>,
-  p: ({ children }) => <Typography>{children}</Typography>,
+  h1: ({ children }) => <StyledTypography variant="h1">{children}</StyledTypography>,
+  h2: ({ children }) => <StyledTypography variant="h2">{children}</StyledTypography>,
+  h3: ({ children }) => <StyledTypography variant="h3">{children}</StyledTypography>,
+  h4: ({ children }) => <StyledTypography variant="h4">{children}</StyledTypography>,
+  h5: ({ children }) => <StyledTypography variant="h5">{children}</StyledTypography>,
+  h6: ({ children }) => <StyledTypography variant="h6">{children}</StyledTypography>,
+  p: ({ children }) => (
+    <StyledTypography sx={{ marginBottom: 2 }}>{children}</StyledTypography>
+  ),
   bold: ({ children }) => (
     <Typography component="span" fontWeight="fontWeightBold">
       {children}
