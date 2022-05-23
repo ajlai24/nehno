@@ -12,7 +12,7 @@ import {
 
 const StyledTypography = styled(Typography)({ marginBottom: '1.25rem' });
 
-const renderers = {
+const RichTextRenderers = {
   a: ({ children, href, openInNewTab }) => (
     <Link
       href={href}
@@ -22,12 +22,24 @@ const renderers = {
       {children}
     </Link>
   ),
-  h1: ({ children }) => <StyledTypography variant="h1">{children}</StyledTypography>,
-  h2: ({ children }) => <StyledTypography variant="h2">{children}</StyledTypography>,
-  h3: ({ children }) => <StyledTypography variant="h3">{children}</StyledTypography>,
-  h4: ({ children }) => <StyledTypography variant="h4">{children}</StyledTypography>,
-  h5: ({ children }) => <StyledTypography variant="h5">{children}</StyledTypography>,
-  h6: ({ children }) => <StyledTypography variant="h6">{children}</StyledTypography>,
+  h1: ({ children }) => (
+    <StyledTypography variant="h1">{children}</StyledTypography>
+  ),
+  h2: ({ children }) => (
+    <StyledTypography variant="h2">{children}</StyledTypography>
+  ),
+  h3: ({ children }) => (
+    <StyledTypography variant="h3">{children}</StyledTypography>
+  ),
+  h4: ({ children }) => (
+    <StyledTypography variant="h4">{children}</StyledTypography>
+  ),
+  h5: ({ children }) => (
+    <StyledTypography variant="h5">{children}</StyledTypography>
+  ),
+  h6: ({ children }) => (
+    <StyledTypography variant="h6">{children}</StyledTypography>
+  ),
   p: ({ children }) => (
     <StyledTypography sx={{ marginBottom: 2 }}>{children}</StyledTypography>
   ),
@@ -77,9 +89,6 @@ const renderers = {
       >
         <code>{children}</code>
       </Box>
-      // <pre className="line-numbers language-none">
-      //   <code>{children}</code>
-      // </pre>
     );
   },
   table: ({ children }) => <Table>{children}</Table>,
@@ -90,4 +99,4 @@ const renderers = {
   table_cell: ({ children }) => <TableCell>{children}</TableCell>,
 };
 
-export default renderers;
+export default RichTextRenderers;

@@ -1,24 +1,23 @@
 import { RichText } from '@graphcms/rich-text-react-renderer';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import {
   Box,
   Button,
   Container,
-  Divider,
   Fab,
   Snackbar,
   Typography,
 } from '@mui/material';
 import Layout from 'components/Layout';
 import PostHeader from 'components/PostHeader';
+import RichTextRenderers from 'components/RichTextRenderers';
 import ScrollTop from 'components/ScrollTop';
 import { Post } from 'interfaces';
 import { getAllPostsWithSlug, getPostAndMorePosts } from 'lib/graphcms';
 import ErrorPage from 'next/error';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
-import renderers from './renderers';
-import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 
 interface BlogPostProps {
   post: Post;
@@ -26,7 +25,7 @@ interface BlogPostProps {
   preview?: boolean;
 }
 
-export default function BlogPost({ post, preview }: BlogPostProps) {
+const BlogPost = ({ post, preview }: BlogPostProps) => {
   const router = useRouter();
 
   if (!router.isFallback && !post?.slug) {
@@ -77,10 +76,13 @@ export default function BlogPost({ post, preview }: BlogPostProps) {
                 authors={post.authors}
               />
               <Box mt={4}>
-                <RichText content={post.content.raw} renderers={renderers} />
+                <RichText
+                  content={post.content.raw}
+                  renderers={RichTextRenderers}
+                />
               </Box>
             </article>
-            <Divider />
+            {/* <Divider /> */}
             {/* {morePosts.length > 0 && <MoreStories posts={morePosts} />} */}
           </>
         )}
@@ -92,7 +94,8 @@ export default function BlogPost({ post, preview }: BlogPostProps) {
       </ScrollTop>
     </Layout>
   );
-}
+};
+export default BlogPost;
 
 export async function getStaticProps({ params, preview = false }) {
   const data = await getPostAndMorePosts(params.slug, preview);
