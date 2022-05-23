@@ -1,7 +1,3 @@
-import { GraphQLClient } from 'graphql-request';
-
-const graphcms = new GraphQLClient(process.env.GRAPHCMS_PROJECT_API);
-
 type Variables = {
   stage?: 'DRAFT' | 'PUBLISHED';
   slug?: string;
@@ -12,32 +8,61 @@ type Options = {
   preview?: boolean;
 };
 
-/**
- * GraphQL query
- * @param query
- * @param options
- * @returns
- */
-async function fetchAPI(query: string, options: Options = {}) {
+async function fetchAPI(query, options: Options = {}) {
   const { variables, preview = false } = options;
 
-  const requestHeaders = {
-    'Content-Type': 'application/json',
-    Authorization: `Bearer ${
-      preview
-        ? process.env.GRAPHCMS_DEV_AUTH_TOKEN
-        : process.env.GRAPHCMS_PROD_AUTH_TOKEN
-    }`,
-  };
+  const res = await fetch(process.env.GRAPHCMS_PROJECT_API, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${
+        preview
+          ? process.env.GRAPHCMS_DEV_AUTH_TOKEN
+          : process.env.GRAPHCMS_PROD_AUTH_TOKEN
+      }`,
+    },
+    body: JSON.stringify({
+      query,
+      variables,
+    }),
+  });
+  const json = await res.json();
 
-  try {
-    const data = await graphcms.request(query, variables, requestHeaders);
-    return data;
-  } catch (error) {
-    console.error(JSON.stringify(error, undefined, 2));
-    process.exit(1);
+  if (json.errors) {
+    console.log(process.env.NEXT_EXAMPLE_CMS_GCMS_PROJECT_ID);
+    console.error(json.errors);
+    throw new Error('Failed to fetch API');
   }
+
+  return json.data;
 }
+
+// /**
+//  * GraphQL query
+//  * @param query
+//  * @param options
+//  * @returns
+//  */
+// async function fetchAPI(query: string, options: Options = {}) {
+//   const { variables, preview = false } = options;
+
+//   const requestHeaders = {
+//     'Content-Type': 'application/json',
+//     Authorization: `Bearer ${
+//       preview
+//         ? process.env.GRAPHCMS_DEV_AUTH_TOKEN
+//         : process.env.GRAPHCMS_PROD_AUTH_TOKEN
+//     }`,
+//   };
+
+//   try {
+//     const data = await graphcms.request(query, variables, requestHeaders);
+//     return data;
+//   } catch (error) {
+//     console.error(JSON.stringify(error, undefined, 2));
+//     process.exit(1);
+//   }
+// }
 
 export async function getPreviewPostBySlug(slug) {
   const data = await fetchAPI(
