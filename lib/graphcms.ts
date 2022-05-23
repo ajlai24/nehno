@@ -22,6 +22,7 @@ async function fetchAPI(query: string, options: Options = {}) {
   const { variables, preview = false } = options;
 
   const requestHeaders = {
+    'Content-Type': 'application/json',
     Authorization: `Bearer ${
       preview
         ? process.env.GRAPHCMS_DEV_AUTH_TOKEN
