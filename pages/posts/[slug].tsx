@@ -65,7 +65,7 @@ const BlogPost = ({ post, preview, morePosts }: BlogPostProps) => {
           </>
         )}
       </Container>
-      {morePosts.length > 0 && <MoreStories posts={morePosts} />}
+      {morePosts?.length > 0 && <MoreStories posts={morePosts} />}
       <ScrollTop>
         <Fab color="primary" size="small" aria-label="scroll back to top">
           <KeyboardArrowUpIcon />
