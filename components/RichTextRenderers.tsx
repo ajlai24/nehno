@@ -12,6 +12,7 @@ import {
   TableRow,
   Typography,
 } from '@mui/material';
+import Image from 'next/image';
 
 const StyledTypography = styled(Typography)({ marginBottom: '1.25rem' });
 
@@ -44,6 +45,19 @@ const RichTextRenderers = {
     >
       {children}
     </Link>
+  ),
+  img: ({ src, title, width, height, altText }) => (
+    <div style={{ width, position: 'relative' }}>
+      <Image
+        alt={altText}
+        src={src}
+        layout="responsive"
+        objectFit="contain"
+        width={width}
+        height={height}
+        title={title}
+      />
+    </div>
   ),
   h1: ({ children }) => (
     <StyledTypography variant="h1">{children}</StyledTypography>
