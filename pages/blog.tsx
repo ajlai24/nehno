@@ -1,74 +1,74 @@
-import {
-  Box,
-  Card,
-  CardContent,
-  CardHeader,
-  Container,
-  Fade,
-  Grid,
-  Skeleton,
-} from '@mui/material';
+import { Box, Container, Fade, Grid } from '@mui/material';
+import BlogPostCard from 'components/BlogPostCard';
+import Layout from 'components/Layout';
+import PreviewSnackbar from 'components/PreviewSnackbar';
+import Section from 'components/Section';
+import SectionHeader from 'components/SectionHeader';
+import SkeletonCard from 'components/SkeletonCard';
+import { Post } from 'interfaces';
+import { getAllPostsForBlogPage } from 'lib/graphcms';
+import { useRouter } from 'next/router';
 import { TransitionGroup } from 'react-transition-group';
-import Layout from '../components/Layout';
-import Section from '../components/Section';
-import SectionHeader from '../components/SectionHeader';
 
-const SkeletonCard = () => (
-  <Card>
-    <CardHeader
-      avatar={
-        <Skeleton animation="wave" variant="circular" width={40} height={40} />
-      }
-      title={
-        <Skeleton
-          animation="wave"
-          height={10}
-          width="80%"
-          style={{ marginBottom: 6 }}
-        />
-      }
-      subheader={<Skeleton animation="wave" height={10} width="40%" />}
-    />
-    <Skeleton sx={{ height: 190 }} animation="wave" variant="rectangular" />
-    <CardContent>
-      <>
-        <Skeleton animation="wave" height={10} style={{ marginBottom: 6 }} />
-        <Skeleton animation="wave" height={10} width="80%" />
-      </>
-    </CardContent>
-  </Card>
+const SkeletonGrid = () => (
+  <>
+    {Array.from(new Array(6)).map((item, index) => (
+      <Grid item key={index} xs={12} sm={6} md={4}>
+        <TransitionGroup key={index}>
+          <Fade
+            timeout={1000}
+            style={{
+              transformOrigin: 'top left',
+              transitionDelay: `${200 * index}ms`,
+            }}
+          >
+            <Box>
+              <SkeletonCard />
+            </Box>
+          </Fade>
+        </TransitionGroup>
+      </Grid>
+    ))}
+  </>
 );
 
-const BlogPage = () => (
-  <Layout title="Blog | nehno.com" meta="blog">
-    <Section>
-      <Container>
-        <SectionHeader title="Blog" subtitle="Coming soon" />
-
-        <Box mt={4}>
-          <Grid container spacing={4}>
-            {Array.from(new Array(6)).map((item, index) => (
-              <Grid item key={index} xs={12} sm={6} md={4}>
-                <TransitionGroup key={index}>
-                  <Fade
-                    timeout={1000}
-                    style={{
-                      transformOrigin: 'top left',
-                      transitionDelay: `${200 * index}ms`,
-                    }}
-                  >
-                    <Box>
-                      <SkeletonCard />
-                    </Box>
-                  </Fade>
-                </TransitionGroup>
-              </Grid>
-            ))}
-          </Grid>
-        </Box>
-      </Container>
-    </Section>
-  </Layout>
+const BlogPosts = ({ posts }: { posts: Post[] }) => (
+  <>
+    {posts.map((post) => (
+      <Grid item key={post.id} xs={12} sm={6} md={4}>
+        <BlogPostCard {...post} />
+      </Grid>
+    ))}
+  </>
 );
 
-export default BlogPage;
+const Blog = ({ posts, preview }) => {
+  const router = useRouter();
+
+  return (
+    <Layout title="Blog | nehno.com" meta="blog">
+      {preview && <PreviewSnackbar />}
+      <Section>
+        <Container>
+          <SectionHeader title="Blog" subtitle="Random musings" />
+          <Box mt={4}>
+            <Grid container spacing={4}>
+              {router.isFallback ? (
+                <SkeletonGrid />
+              ) : (
+                <BlogPosts posts={posts} />
+              )}
+            </Grid>
+          </Box>
+        </Container>
+      </Section>
+    </Layout>
+  );
+};
+
+export default Blog;
+
+export async function getStaticProps({ preview = false }) {
+  const posts = (await getAllPostsForBlogPage(preview)) || [];
+  return { props: { posts, preview } };
+}
