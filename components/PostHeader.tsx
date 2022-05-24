@@ -19,7 +19,7 @@ const PostHeader = (props: PostHeaderProps) => {
 
   return (
     <Box>
-      <Typography variant="h1">{title}</Typography>
+      <Typography variant="h2">{title}</Typography>
       <Box my={4} display="flex" alignItems="center">
         <Box display="flex" alignItems="center">
           <AvatarGroup max={3}>

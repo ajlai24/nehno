@@ -1,16 +1,39 @@
 import {
   Box,
   Link,
+  Paper,
   styled,
   Table,
   TableBody,
   TableCell,
+  tableCellClasses,
+  TableContainer,
   TableHead,
   TableRow,
   Typography,
 } from '@mui/material';
 
 const StyledTypography = styled(Typography)({ marginBottom: '1.25rem' });
+
+const StyledTableCell = styled(TableCell)(({ theme }) => ({
+  [`&.${tableCellClasses.head}`]: {
+    backgroundColor: theme.palette.primary.dark,
+    color: theme.palette.common.white,
+  },
+  '& .MuiTypography-root': {
+    margin: 0,
+  },
+}));
+
+const StyledTableRow = styled(TableRow)(({ theme }) => ({
+  '&:nth-of-type(odd)': {
+    backgroundColor: theme.palette.action.hover,
+  },
+  // hide last border
+  '&:last-child td, &:last-child th': {
+    border: 0,
+  },
+}));
 
 const RichTextRenderers = {
   a: ({ children, href, openInNewTab }) => (
@@ -60,6 +83,17 @@ const RichTextRenderers = {
       </Box>
     );
   },
+  class: ({ children, className }) => (
+    <Box
+      className={className}
+      {...(className === 'center' && {
+        display: 'flex',
+        justifyContent: 'center',
+      })}
+    >
+      {children}
+    </Box>
+  ),
   code: ({ children }) => (
     <Typography
       component="span"
@@ -78,25 +112,33 @@ const RichTextRenderers = {
     return (
       <Box
         component="pre"
-        sx={{
+        sx={(theme) => ({
           padding: 2,
           overflow: 'auto',
           fontSize: '85%',
-          // line-height: 1.45;
-          backgroundColor: '#f6f8fa',
-          borderRadius: '6px',
-        }}
+          borderRadius: 1,
+          background:
+            theme.palette.mode === 'dark'
+              ? theme.palette.background.paper
+              : theme.palette.grey[100],
+        })}
       >
         <code>{children}</code>
       </Box>
     );
   },
-  table: ({ children }) => <Table>{children}</Table>,
+  table: ({ children }) => (
+    <TableContainer component={Paper}>
+      <Table>{children}</Table>
+    </TableContainer>
+  ),
   table_head: ({ children }) => <TableHead>{children}</TableHead>,
-  table_header_cell: ({ children }) => <TableCell>{children}</TableCell>,
+  table_header_cell: ({ children }) => (
+    <StyledTableCell>{children}</StyledTableCell>
+  ),
   table_body: ({ children }) => <TableBody>{children}</TableBody>,
-  table_row: ({ children }) => <TableRow>{children}</TableRow>,
-  table_cell: ({ children }) => <TableCell>{children}</TableCell>,
+  table_row: ({ children }) => <StyledTableRow>{children}</StyledTableRow>,
+  table_cell: ({ children }) => <StyledTableCell>{children}</StyledTableCell>,
 };
 
 export default RichTextRenderers;

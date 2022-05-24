@@ -43,7 +43,7 @@ const BlogPost = ({ post, preview }: BlogPostProps) => {
           Back
         </Button>
       </Container>
-      <Container>
+      <Container sx={{ mt: 4, mb: { xs: 4, md: 8, lg: 16 } }}>
         {router.isFallback ? (
           <Typography variant="h2">Loading...</Typography>
         ) : (
@@ -75,7 +75,7 @@ const BlogPost = ({ post, preview }: BlogPostProps) => {
                 isoDate={post.date}
                 authors={post.authors}
               />
-              <Box mt={4}>
+              <Box mt={6}>
                 <RichText
                   content={post.content.raw}
                   renderers={RichTextRenderers}
