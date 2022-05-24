@@ -1,20 +1,19 @@
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import { Box, Container, Typography } from '@mui/material';
 import Fab from '@mui/material/Fab';
-import useScrollTrigger from '@mui/material/useScrollTrigger';
-import Zoom from '@mui/material/Zoom';
-import Layout from '../components/Layout';
-import Link from '../components/Link';
-import Section from '../components/Section';
-import SectionHeader from '../components/SectionHeader';
-import TableOfContents from '../components/TableOfContents';
-import Building from '../components/tech/Building';
-import Deployments from '../components/tech/Deployments';
-import Intro from '../components/tech/Intro';
-import Misc from '../components/tech/Misc';
-import UIUX from '../components/tech/UIUX';
-import TextSection from '../components/TextSection';
-import { AnchorInfo } from '../interfaces';
+import Layout from 'components/Layout';
+import Link from 'components/Link';
+import ScrollTop from 'components/ScrollTop';
+import Section from 'components/Section';
+import SectionHeader from 'components/SectionHeader';
+import TableOfContents from 'components/TableOfContents';
+import Building from 'components/tech/Building';
+import Deployments from 'components/tech/Deployments';
+import Intro from 'components/tech/Intro';
+import Misc from 'components/tech/Misc';
+import UIUX from 'components/tech/UIUX';
+import TextSection from 'components/TextSection';
+import { AnchorInfo } from 'interfaces';
 
 const anchors: AnchorInfo[] = [
   {
@@ -63,44 +62,7 @@ const anchors: AnchorInfo[] = [
   },
 ];
 
-interface Props {
-  children: React.ReactElement;
-}
-
-function ScrollTop(props: Props) {
-  const { children } = props;
-  const trigger = useScrollTrigger({
-    disableHysteresis: true,
-    threshold: 100,
-  });
-
-  const handleClick = (event: React.MouseEvent<HTMLDivElement>) => {
-    const anchor = (
-      (event.target as HTMLDivElement).ownerDocument || document
-    ).querySelector('#back-to-top-anchor');
-
-    if (anchor) {
-      anchor.scrollIntoView({
-        behavior: 'smooth',
-        block: 'center',
-      });
-    }
-  };
-
-  return (
-    <Zoom in={trigger}>
-      <Box
-        onClick={handleClick}
-        role="presentation"
-        sx={{ position: 'fixed', bottom: 16, right: 16 }}
-      >
-        {children}
-      </Box>
-    </Zoom>
-  );
-}
-
-const TechPage = (props: Props) => (
+const TechPage = () => (
   <Layout title="Tech | nehno.com" meta="tech">
     <Section>
       <Container>
@@ -121,7 +83,7 @@ const TechPage = (props: Props) => (
         </Box>
       </Container>
     </Section>
-    <ScrollTop {...props}>
+    <ScrollTop>
       <Fab color="primary" size="small" aria-label="scroll back to top">
         <KeyboardArrowUpIcon />
       </Fab>
