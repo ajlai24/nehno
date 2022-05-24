@@ -35,7 +35,7 @@ const PostHeader = (props: PostHeaderProps) => {
           <Box sx={{ ml: 1 }}>
             <Typography variant="subtitle1">{lf.format(names)}</Typography>
             <Typography variant="subtitle2">
-              {format(date, 'LLLL	d, yyyy')}
+              {format(date, 'PPP')}
             </Typography>
           </Box>
         </Box>

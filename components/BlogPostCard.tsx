@@ -6,8 +6,9 @@ import {
   CardContent,
   CardHeader,
   Skeleton,
-  Typography,
+  Typography
 } from '@mui/material';
+import { format, parseISO } from 'date-fns';
 import { Post } from 'interfaces';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -15,12 +16,13 @@ import Link from 'next/link';
 const BlogPostCard = ({
   authors,
   coverImage: { url },
-  date,
+  date: isoDate,
   excerpt,
   slug,
   title,
 }: Post) => {
   const href = `/posts/${slug}`;
+  const date = parseISO(isoDate);
 
   return (
     <Link href={href} passHref>
@@ -49,7 +51,7 @@ const BlogPostCard = ({
               )
             }
             title={title}
-            subheader={date}
+            subheader={format(date, 'PP')}
           />
           <Image
             height={190}
