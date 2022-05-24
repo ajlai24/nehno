@@ -3,7 +3,7 @@ import { Post } from 'interfaces';
 import BlogPostCard from './BlogPostCard';
 
 const MoreStories = ({ posts }: { posts: Post[] }) => (
-  <Box mt={4}>
+  <Box mt={4} mb={{ xs: 4, md: 8, lg: 12 }}>
     <Container>
       <Divider sx={{ my: 4 }} />
       <Typography variant="h3" sx={{ mb: 3 }}>
