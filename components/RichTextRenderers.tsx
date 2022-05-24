@@ -47,7 +47,7 @@ const RichTextRenderers = {
     </Link>
   ),
   img: ({ src, title, width, height, altText }) => (
-    <div style={{ width, position: 'relative' }}>
+    <Box maxWidth={width} margin="auto">
       <Image
         alt={altText}
         src={src}
@@ -57,7 +57,7 @@ const RichTextRenderers = {
         height={height}
         title={title}
       />
-    </div>
+    </Box>
   ),
   h1: ({ children }) => (
     <StyledTypography variant="h1">{children}</StyledTypography>
