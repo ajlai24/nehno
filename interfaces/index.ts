@@ -24,6 +24,7 @@ export type Post = {
   authors: Author[];
   content: Content;
   coverImage: Image;
+  id: string;
   ogImage: Image;
   date: string;
   excerpt: string;

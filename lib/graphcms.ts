@@ -110,8 +110,9 @@ export async function getPostAndMorePosts(slug, preview) {
       post(stage: $stage, where: {slug: $slug}) {
         date
         excerpt
-        title
+        id
         slug
+        title
         content {
           raw
         }
@@ -129,10 +130,20 @@ export async function getPostAndMorePosts(slug, preview) {
         }
       }
       morePosts: posts(orderBy: date_DESC, first: 2, where: {slug_not_in: [$slug]}) {
-        title
-        slug
-        excerpt
+        id
         date
+        excerpt
+        slug
+        title
+        coverImage {
+          url(transformation: {image: {resize: {fit: clip, height: 1000, width: 2000}}})
+        }
+        authors {
+          name
+          picture {
+            url(transformation: {image: {resize: {fit: clip, height: 80, width: 80}}})
+          }
+        }
       }
     }
   `,

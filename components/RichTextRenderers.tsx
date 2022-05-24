@@ -100,9 +100,8 @@ const RichTextRenderers = {
   class: ({ children, className }) => (
     <Box
       className={className}
-      {...(className === 'center' && {
+      {...(className === 'flex' && {
         display: 'flex',
-        justifyContent: 'center',
       })}
     >
       {children}

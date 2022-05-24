@@ -1,13 +1,9 @@
 import { RichText } from '@graphcms/rich-text-react-renderer';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
-import {
-  Box,
-  Button,
-  Container,
-  Fab, Typography
-} from '@mui/material';
+import { Box, Button, Container, Fab, Typography } from '@mui/material';
 import Layout from 'components/Layout';
+import MoreStories from 'components/MoreStories';
 import PostHeader from 'components/PostHeader';
 import PreviewSnackbar from 'components/PreviewSnackbar';
 import RichTextRenderers from 'components/RichTextRenderers';
@@ -24,7 +20,7 @@ interface BlogPostProps {
   preview?: boolean;
 }
 
-const BlogPost = ({ post, preview }: BlogPostProps) => {
+const BlogPost = ({ post, preview, morePosts }: BlogPostProps) => {
   const router = useRouter();
 
   if (!router.isFallback && !post?.slug) {
@@ -42,7 +38,7 @@ const BlogPost = ({ post, preview }: BlogPostProps) => {
           Back
         </Button>
       </Container>
-      <Container sx={{ mt: 4, mb: { xs: 4, md: 8, lg: 16 } }}>
+      <Container sx={{ mt: 4, mb: { xs: 4, md: 8, lg: 12 } }}>
         {router.isFallback ? (
           <Typography variant="h2">Loading...</Typography>
         ) : (
@@ -66,11 +62,10 @@ const BlogPost = ({ post, preview }: BlogPostProps) => {
                 />
               </Box>
             </article>
-            {/* <Divider /> */}
-            {/* {morePosts.length > 0 && <MoreStories posts={morePosts} />} */}
           </>
         )}
       </Container>
+      {morePosts.length > 0 && <MoreStories posts={morePosts} />}
       <ScrollTop>
         <Fab color="primary" size="small" aria-label="scroll back to top">
           <KeyboardArrowUpIcon />

@@ -35,7 +35,7 @@ const SkeletonGrid = () => (
 const BlogPosts = ({ posts }: { posts: Post[] }) => (
   <>
     {posts.map((post) => (
-      <Grid item key={post.slug} xs={12} sm={6} md={4}>
+      <Grid item key={post.id} xs={12} sm={6} md={4}>
         <BlogPostCard {...post} />
       </Grid>
     ))}

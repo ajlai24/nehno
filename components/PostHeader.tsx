@@ -34,9 +34,7 @@ const PostHeader = (props: PostHeaderProps) => {
           </AvatarGroup>
           <Box sx={{ ml: 1 }}>
             <Typography variant="subtitle1">{lf.format(names)}</Typography>
-            <Typography variant="subtitle2">
-              {format(date, 'PPP')}
-            </Typography>
+            <Typography variant="subtitle2">{format(date, 'PPP')}</Typography>
           </Box>
         </Box>
       </Box>
