@@ -6,10 +6,6 @@
 
 This is an example repository using Next.js, MUI, Typescript, GraphCMS, and Framer Motion that was deployed with [Vercel](https://vercel.com/) [(Documentation)](https://nextjs.org/docs/deployment). Feel free to take a look around!
 
-
-
 ## Demo
 
 Live: [https://nehno.com/](https://nehno.com/)
-
-
