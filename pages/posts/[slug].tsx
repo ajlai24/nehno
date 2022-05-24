@@ -5,12 +5,11 @@ import {
   Box,
   Button,
   Container,
-  Fab,
-  Snackbar,
-  Typography,
+  Fab, Typography
 } from '@mui/material';
 import Layout from 'components/Layout';
 import PostHeader from 'components/PostHeader';
+import PreviewSnackbar from 'components/PreviewSnackbar';
 import RichTextRenderers from 'components/RichTextRenderers';
 import ScrollTop from 'components/ScrollTop';
 import { Post } from 'interfaces';
@@ -48,22 +47,7 @@ const BlogPost = ({ post, preview }: BlogPostProps) => {
           <Typography variant="h2">Loading...</Typography>
         ) : (
           <>
-            {preview && (
-              <Snackbar
-                open
-                message="You are in Preview Mode"
-                anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
-                action={
-                  <Button
-                    color="secondary"
-                    size="small"
-                    href="/api/exit-preview"
-                  >
-                    Exit Preview mode
-                  </Button>
-                }
-              />
-            )}
+            {preview && <PreviewSnackbar />}
             <article>
               <Head>
                 <title>{post.title}</title>

@@ -1,6 +1,7 @@
 import { Box, Container, Fade, Grid } from '@mui/material';
 import BlogPostCard from 'components/BlogPostCard';
 import Layout from 'components/Layout';
+import PreviewSnackbar from 'components/PreviewSnackbar';
 import Section from 'components/Section';
 import SectionHeader from 'components/SectionHeader';
 import SkeletonCard from 'components/SkeletonCard';
@@ -41,11 +42,12 @@ const BlogPosts = ({ posts }: { posts: Post[] }) => (
   </>
 );
 
-const Blog = ({ posts }) => {
+const Blog = ({ posts, preview }) => {
   const router = useRouter();
 
   return (
     <Layout title="Blog | nehno.com" meta="blog">
+      {preview && <PreviewSnackbar />}
       <Section>
         <Container>
           <SectionHeader title="Blog" subtitle="Random musings" />
@@ -68,5 +70,5 @@ export default Blog;
 
 export async function getStaticProps({ preview = false }) {
   const posts = (await getAllPostsForBlogPage(preview)) || [];
-  return { props: { posts } };
+  return { props: { posts, preview } };
 }
