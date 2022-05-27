@@ -93,6 +93,7 @@ export async function getAllPostsForBlogPage(preview) {
       }
       date
       excerpt
+      id
       title
       slug            
     }
