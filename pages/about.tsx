@@ -81,17 +81,19 @@ const AboutHero = () => (
           I&apos;m a software developer with a passion for frontend development.
         </Typography>
 
-        <Button
-          sx={{ mt: 2 }}
-          variant="contained"
-          endIcon={<LinkedInIcon />}
-          href="https://www.linkedin.com/in/devajlai/"
-          target="_blank"
-          rel="sponsored noopener"
-          size="large"
-        >
-          Say hello!
-        </Button>
+        <Box display="flex" justifyContent={{ xs: 'center', lg: 'flex-start' }}>
+          <Button
+            sx={{ mt: 2 }}
+            variant="contained"
+            endIcon={<LinkedInIcon />}
+            href="https://www.linkedin.com/in/devajlai/"
+            target="_blank"
+            rel="sponsored noopener"
+            size="large"
+          >
+            Say hello!
+          </Button>
+        </Box>
       </Box>
     </Grid>
   </Grid>
@@ -105,7 +107,7 @@ const ContactCard = () => (
       }}
       variant="outlined"
     >
-      <Typography variant="h6" fontWeight={300}>
+      <Typography variant="h6" fontWeight={300} textAlign="center">
         Want to work together on something interesting?
       </Typography>
       <Box display="flex" justifyContent="center">
@@ -135,7 +137,7 @@ const WorkExperience = () => (
         }}
         whileInView={{ opacity: 1, scale: 1 }}
         viewport={{ once: true }}
-        transition={{ duration: 1, ease: [0.4, 0, 0.2, 1] }}
+        transition={{ duration: 0.7, ease: [0.4, 0, 0.2, 1] }}
       >
         <Box maxWidth="40rem" sx={{ background: 'white', p: 2, boxShadow: 2 }}>
           <Image src={workDesk} alt="Work Desk" placeholder="blur" />
@@ -231,7 +233,7 @@ const AboutPage = () => (
       </Container>
     </Section>
     <Divider />
-    <Section sx={{ py: { lg: 4 }, mb: 4 }}>
+    <Section sx={{ py: { xs: 2, lg: 4 }, mb: 4 }}>
       <Container>
         <ContactCard />
       </Container>
