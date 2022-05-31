@@ -5,11 +5,12 @@ const graphcms = new GraphQLClient(process.env.GRAPHCMS_PROJECT_API);
 type Variables = {
   stage?: 'DRAFT' | 'PUBLISHED';
   slug?: string;
+  searchQuery?: string;
 };
 
 type Options = {
-  variables?: Variables;
   preview?: boolean;
+  variables?: Variables;
 };
 
 /**
@@ -80,26 +81,58 @@ export async function getAllPostsWithSlug() {
 export async function getAllPostsForBlogPage(preview) {
   const data = await fetchAPI(
     `
-  {
-    posts(orderBy: date_DESC, first: 20) {
-      authors {
-        name
-        picture {
-          url(transformation: {image: {resize: {fit: clip, height: 40, width: 40}}})
+    {
+      posts(orderBy: date_DESC, first: 20) {
+        authors {
+          name
+          picture {
+            url(transformation: {image: {resize: {fit: clip, height: 40, width: 40}}})
+          }
         }
+        coverImage {
+          url(transformation: {image: {resize: {fit: clip, height: 190, width: 360}}})
+        }
+        date
+        excerpt
+        id
+        title
+        slug            
       }
-      coverImage {
-        url(transformation: {image: {resize: {fit: clip, height: 190, width: 360}}})
-      }
-      date
-      excerpt
-      id
-      title
-      slug            
     }
-  }
-`,
+  `,
     { preview }
+  );
+  return data.posts;
+}
+
+export async function searchPostsForBlogPage(searchQuery, preview) {
+  const data = await fetchAPI(
+    `
+    query SearchPost($searchQuery: String!) {
+      posts(where: {_search: $searchQuery}) {
+        authors {
+          name
+          picture {
+            url(transformation: {image: {resize: {fit: clip, height: 40, width: 40}}})
+          }
+        }
+        coverImage {
+          url(transformation: {image: {resize: {fit: clip, height: 190, width: 360}}})
+        }
+        date
+        excerpt
+        id
+        title
+        slug            
+      }
+    }
+  `,
+    {
+      preview,
+      variables: {
+        searchQuery,
+      },
+    }
   );
   return data.posts;
 }
