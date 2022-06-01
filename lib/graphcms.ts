@@ -109,6 +109,7 @@ export async function getPostAndMorePosts(slug, preview) {
     `
     query PostBySlug($slug: String!, $stage: Stage!) {
       post(stage: $stage, where: {slug: $slug}) {
+        allowComments
         date
         excerpt
         id

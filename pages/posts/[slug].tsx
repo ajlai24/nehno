@@ -13,6 +13,7 @@ import { getAllPostsWithSlug, getPostAndMorePosts } from 'lib/graphcms';
 import ErrorPage from 'next/error';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
+import { DiscussionEmbed } from 'disqus-react';
 
 interface BlogPostProps {
   post: Post;
@@ -62,6 +63,18 @@ const BlogPost = ({ post, preview, morePosts }: BlogPostProps) => {
                 />
               </Box>
             </article>
+            {post.allowComments && (
+              <Box my={6}>
+                <DiscussionEmbed
+                  shortname="nehno"
+                  config={{
+                    url: post.slug,
+                    identifier: post.id,
+                    title: post.title,
+                  }}
+                />
+              </Box>
+            )}
           </>
         )}
       </Container>
