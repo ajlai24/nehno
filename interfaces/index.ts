@@ -21,6 +21,7 @@ export type Content = {
 };
 
 export type Post = {
+  allowComments?: boolean;
   authors: Author[];
   content: Content;
   coverImage: Image;
