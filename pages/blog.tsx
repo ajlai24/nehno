@@ -5,7 +5,7 @@ import PreviewSnackbar from 'components/PreviewSnackbar';
 import Section from 'components/Section';
 import SectionHeader from 'components/SectionHeader';
 import SkeletonCard from 'components/SkeletonCard';
-import { Query } from 'lib/generated/graphql';
+import { GetAllPostsForBlogPageQuery } from 'lib/generated/graphql';
 import { getAllPostsForBlogPage } from 'lib/graphcms';
 import { useRouter } from 'next/router';
 import { TransitionGroup } from 'react-transition-group';
@@ -32,7 +32,11 @@ const SkeletonGrid = () => (
   </>
 );
 
-const BlogPosts = ({ posts }: { posts: Query['posts'] }) => (
+const BlogPosts = ({
+  posts,
+}: {
+  posts: GetAllPostsForBlogPageQuery['posts'];
+}) => (
   <>
     {posts.map((post) => (
       <Grid item key={post.id} xs={12} sm={6} md={4}>
