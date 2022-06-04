@@ -130,7 +130,7 @@ export async function getPostAndMorePosts(slug, preview) {
           coverImage {
             url(
               transformation: {
-                image: { resize: { fit: clip, height: 1000, width: 2000 } }
+                image: { resize: { fit: crop, height: 1000, width: 2000 } }
               }
             )
           }

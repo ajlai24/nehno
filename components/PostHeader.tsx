@@ -38,13 +38,13 @@ const PostHeader = (props: PostHeaderProps) => {
           </Box>
         </Box>
       </Box>
-      <Box sx={{ boxShadow: 3 }}>
+      <Box boxShadow={3} fontSize={0}>
         <NextImage
+          style={{ boxShadow: '0 5px 10px rgb(0 0 0 / 12%)' }}
           width={2000}
           height={1000}
           alt={`Cover Image for ${title}`}
           src={coverImage.url}
-          layout="responsive"
         />
       </Box>
     </Box>
