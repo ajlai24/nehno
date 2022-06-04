@@ -6,10 +6,10 @@ import {
   CardContent,
   CardHeader,
   Skeleton,
-  Typography
+  Typography,
 } from '@mui/material';
 import { format, parseISO } from 'date-fns';
-import { Post } from 'interfaces';
+import { GetPostAndMorePostsQuery } from 'lib/generated/graphql';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -20,7 +20,7 @@ const BlogPostCard = ({
   excerpt,
   slug,
   title,
-}: Post) => {
+}: GetPostAndMorePostsQuery['morePosts'][0]) => {
   const href = `/posts/${slug}`;
   const date = parseISO(isoDate);
 
@@ -31,7 +31,6 @@ const BlogPostCard = ({
           <CardHeader
             avatar={
               authors?.length > 0 ? (
-                // <Avatar alt={authorName} src={avatarSrc} />
                 <AvatarGroup max={2}>
                   {authors.map((author) => (
                     <Avatar

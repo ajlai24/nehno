@@ -8,15 +8,15 @@ import PostHeader from 'components/PostHeader';
 import PreviewSnackbar from 'components/PreviewSnackbar';
 import RichTextRenderers from 'components/RichTextRenderers';
 import ScrollTop from 'components/ScrollTop';
-import { Post } from 'interfaces';
+import { DiscussionEmbed } from 'disqus-react';
+import { GetPostAndMorePostsQuery, Post } from 'lib/generated/graphql';
 import { getAllPostsWithSlug, getPostAndMorePosts } from 'lib/graphcms';
 import ErrorPage from 'next/error';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
-import { DiscussionEmbed } from 'disqus-react';
 
 interface BlogPostProps {
-  post: Post;
+  post: GetPostAndMorePostsQuery['post'];
   morePosts: Post[];
   preview?: boolean;
 }
@@ -68,7 +68,7 @@ const BlogPost = ({ post, preview, morePosts }: BlogPostProps) => {
                 <DiscussionEmbed
                   shortname="nehno"
                   config={{
-                    url: post.slug,
+                    url: `https://nehno.com/posts/${post.slug}`,
                     identifier: post.id,
                     title: post.title,
                   }}

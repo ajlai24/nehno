@@ -1,13 +1,13 @@
 import { Avatar, AvatarGroup, Box, Typography } from '@mui/material';
 import { format, parseISO } from 'date-fns';
-import { Author, Image } from 'interfaces';
+import { GetPostAndMorePostsQuery } from 'lib/generated/graphql';
 import NextImage from 'next/image';
 
 interface PostHeaderProps {
-  title: string;
-  coverImage: Image;
-  isoDate: string;
-  authors: Author[];
+  title: GetPostAndMorePostsQuery['post']['title'];
+  coverImage: GetPostAndMorePostsQuery['post']['coverImage'];
+  isoDate: GetPostAndMorePostsQuery['post']['date'];
+  authors: GetPostAndMorePostsQuery['post']['authors'];
 }
 
 const PostHeader = (props: PostHeaderProps) => {
@@ -38,13 +38,13 @@ const PostHeader = (props: PostHeaderProps) => {
           </Box>
         </Box>
       </Box>
-      <Box sx={{ boxShadow: 3 }}>
+      <Box boxShadow={3} fontSize={0}>
         <NextImage
+          style={{ boxShadow: '0 5px 10px rgb(0 0 0 / 12%)' }}
           width={2000}
           height={1000}
           alt={`Cover Image for ${title}`}
           src={coverImage.url}
-          layout="responsive"
         />
       </Box>
     </Box>

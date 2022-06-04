@@ -1,8 +1,12 @@
 import { Box, Container, Divider, Grid, Typography } from '@mui/material';
-import { Post } from 'interfaces';
+import { GetPostAndMorePostsQuery } from 'lib/generated/graphql';
 import BlogPostCard from './BlogPostCard';
 
-const MoreStories = ({ posts }: { posts: Post[] }) => (
+const MoreStories = ({
+  posts,
+}: {
+  posts: GetPostAndMorePostsQuery['morePosts'];
+}) => (
   <Box mt={4} mb={{ xs: 4, md: 8, lg: 12 }}>
     <Container>
       <Divider sx={{ my: 4 }} />
