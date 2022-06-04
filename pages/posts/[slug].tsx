@@ -68,7 +68,7 @@ const BlogPost = ({ post, preview, morePosts }: BlogPostProps) => {
                 <DiscussionEmbed
                   shortname="nehno"
                   config={{
-                    url: post.slug,
+                    url: `https://nehno.com/posts/${post.slug}`,
                     identifier: post.id,
                     title: post.title,
                   }}
