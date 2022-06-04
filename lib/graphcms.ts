@@ -1,4 +1,4 @@
-import { GraphQLClient } from 'graphql-request';
+import { GraphQLClient, gql } from 'graphql-request';
 
 const graphcms = new GraphQLClient(process.env.GRAPHCMS_PROJECT_API);
 
@@ -41,12 +41,13 @@ async function fetchAPI(query: string, options: Options = {}) {
 
 export async function getPreviewPostBySlug(slug) {
   const data = await fetchAPI(
-    `
-    query PostBySlug($slug: String!, $stage: Stage!) {
-      post(where: {slug: $slug}, stage: $stage) {
-        slug
+    gql`
+      query getPreviewPostBySlug($slug: String!, $stage: Stage!) {
+        post(where: { slug: $slug }, stage: $stage) {
+          slug
+        }
       }
-    }`,
+    `,
     {
       preview: true,
       variables: {
@@ -63,13 +64,13 @@ export async function getPreviewPostBySlug(slug) {
  * @returns
  */
 export async function getAllPostsWithSlug() {
-  return fetchAPI(`
-  {
-    posts {
-      slug
+  return fetchAPI(gql`
+    query getAllPostsWithSlug {
+      posts {
+        slug
+      }
     }
-  }
-`);
+  `);
 }
 
 /**
@@ -79,26 +80,34 @@ export async function getAllPostsWithSlug() {
  */
 export async function getAllPostsForBlogPage(preview) {
   const data = await fetchAPI(
-    `
-  {
-    posts(orderBy: date_DESC, first: 20) {
-      authors {
-        name
-        picture {
-          url(transformation: {image: {resize: {fit: clip, height: 40, width: 40}}})
+    gql`
+      query getAllPostsForBlogPage {
+        posts(orderBy: date_DESC, first: 20) {
+          authors {
+            name
+            picture {
+              url(
+                transformation: {
+                  image: { resize: { fit: clip, height: 40, width: 40 } }
+                }
+              )
+            }
+          }
+          coverImage {
+            url(
+              transformation: {
+                image: { resize: { fit: clip, height: 190, width: 360 } }
+              }
+            )
+          }
+          date
+          excerpt
+          id
+          title
+          slug
         }
       }
-      coverImage {
-        url(transformation: {image: {resize: {fit: clip, height: 190, width: 360}}})
-      }
-      date
-      excerpt
-      id
-      title
-      slug            
-    }
-  }
-`,
+    `,
     { preview }
   );
   return data.posts;
@@ -106,49 +115,73 @@ export async function getAllPostsForBlogPage(preview) {
 
 export async function getPostAndMorePosts(slug, preview) {
   const data = await fetchAPI(
-    `
-    query PostBySlug($slug: String!, $stage: Stage!) {
-      post(stage: $stage, where: {slug: $slug}) {
-        allowComments
-        date
-        excerpt
-        id
-        slug
-        title
-        content {
-          raw
+    gql`
+      query getPostAndMorePosts($slug: String!, $stage: Stage!) {
+        post(stage: $stage, where: { slug: $slug }) {
+          allowComments
+          date
+          excerpt
+          id
+          slug
+          title
+          content {
+            raw
+          }
+          coverImage {
+            url(
+              transformation: {
+                image: { resize: { fit: crop, height: 1000, width: 2000 } }
+              }
+            )
+          }
+          ogImage: coverImage {
+            url(
+              transformation: {
+                image: { resize: { fit: crop, width: 1200, height: 630 } }
+              }
+            )
+          }
+          authors {
+            name
+            picture {
+              url(
+                transformation: {
+                  image: { resize: { fit: clip, height: 80, width: 80 } }
+                }
+              )
+            }
+          }
         }
-        coverImage {
-          url(transformation: {image: {resize: {fit: clip, height: 1000, width: 2000}}})
-        }
-        ogImage: coverImage {
-          url(transformation: {image: {resize: {fit: crop, width: 1200, height: 630}}})
-        }
-        authors {
-          name
-          picture {
-            url(transformation: {image: {resize: {fit: clip, height: 80, width: 80}}})
+        morePosts: posts(
+          orderBy: date_DESC
+          first: 2
+          where: { slug_not_in: [$slug] }
+        ) {
+          id
+          date
+          excerpt
+          slug
+          title
+          coverImage {
+            url(
+              transformation: {
+                image: { resize: { fit: clip, height: 1000, width: 2000 } }
+              }
+            )
+          }
+          authors {
+            name
+            picture {
+              url(
+                transformation: {
+                  image: { resize: { fit: clip, height: 80, width: 80 } }
+                }
+              )
+            }
           }
         }
       }
-      morePosts: posts(orderBy: date_DESC, first: 2, where: {slug_not_in: [$slug]}) {
-        id
-        date
-        excerpt
-        slug
-        title
-        coverImage {
-          url(transformation: {image: {resize: {fit: clip, height: 1000, width: 2000}}})
-        }
-        authors {
-          name
-          picture {
-            url(transformation: {image: {resize: {fit: clip, height: 80, width: 80}}})
-          }
-        }
-      }
-    }
-  `,
+    `,
     {
       preview,
       variables: {

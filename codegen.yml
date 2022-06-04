@@ -1,0 +1,8 @@
+overwrite: true
+schema: ${GRAPHCMS_PROJECT_API}
+documents: "lib/graphcms.ts"
+generates:
+  lib/generated/graphql.ts:
+    plugins:
+      - "typescript"
+      - "typescript-operations"
