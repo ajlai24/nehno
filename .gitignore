@@ -36,3 +36,6 @@ yarn-error.log*
 
 # generated graphql.ts
 **/*/generated/graphql.ts
+
+# tsc
+*.tsbuildinfo
