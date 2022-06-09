@@ -1,6 +1,6 @@
 import { Box, Link as MuiLink, Typography } from '@mui/material';
+import { AnchorInfo } from 'interfaces';
 import Link from 'next/link';
-import { AnchorInfo } from '../interfaces';
 
 const TableOfContents = ({ anchors }: { anchors: AnchorInfo[] }) => {
   return (

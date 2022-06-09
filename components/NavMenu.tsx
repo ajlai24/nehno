@@ -1,8 +1,8 @@
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 import LightModeIcon from '@mui/icons-material/LightMode';
 import { Box, Divider, IconButton, useTheme } from '@mui/material';
+import ColorModeContext from 'context/ColorModeContext';
 import { useContext } from 'react';
-import ColorModeContext from '../context/ColorModeContext';
 import DesktopMenu from './DesktopMenu';
 import MobileMenu from './MobileMenu';
 

@@ -11,14 +11,14 @@ import {
   Theme,
   Typography,
 } from '@mui/material';
+import Layout from 'components/Layout';
+import Link from 'components/Link';
+import Section from 'components/Section';
 import { motion } from 'framer-motion';
 import { NextPage } from 'next';
 import Image from 'next/image';
+import workDesk from 'public/workdesk.jpg';
 import { ReactNode } from 'react';
-import Layout from '../components/Layout';
-import Link from '../components/Link';
-import Section from '../components/Section';
-import workDesk from '../public/workdesk.jpg';
 
 const AboutParagraph = ({
   children,

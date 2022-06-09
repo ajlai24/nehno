@@ -1,10 +1,10 @@
 import { responsiveFontSizes, ThemeProvider } from '@mui/material';
 import CssBaseline from '@mui/material/CssBaseline';
+import ColorModeContext from 'context/ColorModeContext';
 import type { AppProps } from 'next/app';
 import { useEffect, useState } from 'react';
-import ColorModeContext from '../context/ColorModeContext';
-import '../styles/index.css';
-import { darkTheme, theme } from '../styles/theme';
+import 'styles/index.css';
+import { darkTheme, theme } from 'styles/theme';
 
 function App({ Component, pageProps }: AppProps) {
   const [darkMode, setDarkMode] = useState(false);

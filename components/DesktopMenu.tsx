@@ -1,5 +1,5 @@
 import { Box } from '@mui/material';
-import { routes } from '../utils/routes';
+import { routes } from 'utils/routes';
 import NavLink from './NavLink';
 
 const DesktopMenu = () => (
