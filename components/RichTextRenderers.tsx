@@ -10,11 +10,9 @@ import {
   TableContainer,
   TableHead,
   TableRow,
-  Typography,
+  Typography
 } from '@mui/material';
 import Image from 'next/image';
-
-const StyledTypography = styled(Typography)({ marginBottom: '1.25rem' });
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -57,26 +55,36 @@ const RichTextRenderers = {
     </Box>
   ),
   h1: ({ children }) => (
-    <StyledTypography variant="h1">{children}</StyledTypography>
+    <Typography variant="h1" paragraph>
+      {children}
+    </Typography>
   ),
   h2: ({ children }) => (
-    <StyledTypography variant="h2">{children}</StyledTypography>
+    <Typography variant="h2" paragraph>
+      {children}
+    </Typography>
   ),
   h3: ({ children }) => (
-    <StyledTypography variant="h3">{children}</StyledTypography>
+    <Typography variant="h3" paragraph>
+      {children}
+    </Typography>
   ),
   h4: ({ children }) => (
-    <StyledTypography variant="h4">{children}</StyledTypography>
+    <Typography variant="h4" paragraph>
+      {children}
+    </Typography>
   ),
   h5: ({ children }) => (
-    <StyledTypography variant="h5">{children}</StyledTypography>
+    <Typography variant="h5" paragraph>
+      {children}
+    </Typography>
   ),
   h6: ({ children }) => (
-    <StyledTypography variant="h6">{children}</StyledTypography>
+    <Typography variant="h6" paragraph>
+      {children}
+    </Typography>
   ),
-  p: ({ children }) => (
-    <StyledTypography sx={{ marginBottom: 2 }}>{children}</StyledTypography>
-  ),
+  p: ({ children }) => <Typography paragraph>{children}</Typography>,
   bold: ({ children }) => (
     <Typography component="span" fontWeight="fontWeightBold">
       {children}

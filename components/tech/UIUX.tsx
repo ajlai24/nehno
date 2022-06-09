@@ -1,7 +1,7 @@
 import { Box, Typography } from '@mui/material';
+import Link from 'components/Link';
 import Image from 'next/image';
-import MuiPreview from '../../public/mui-preview.jpg';
-import Link from '../Link';
+import MuiPreview from 'public/mui-preview.jpg';
 import Paragraph from './Paragraph';
 
 const UIUX = () => (

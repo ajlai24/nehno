@@ -14,6 +14,7 @@ import Misc from 'components/tech/Misc';
 import UIUX from 'components/tech/UIUX';
 import TextSection from 'components/TextSection';
 import { AnchorInfo } from 'interfaces';
+import { NextPage } from 'next';
 
 const anchors: AnchorInfo[] = [
   {
@@ -62,7 +63,7 @@ const anchors: AnchorInfo[] = [
   },
 ];
 
-const TechPage = () => (
+const TechPage: NextPage = () => (
   <Layout title="Tech | nehno.com" meta="tech">
     <Section>
       <Container>

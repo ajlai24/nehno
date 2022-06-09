@@ -1,10 +1,10 @@
 import { Box, Container, Grid, styled, Typography } from '@mui/material';
 import { blue } from '@mui/material/colors';
+import Section from 'components/Section';
 import Image from 'next/image';
-import Section from '../components/Section';
-import DuettoLogo from '../public/duettoLogo.svg';
-import SalesforceLogo from '../public/salesforceLogo.svg';
-import strideLogo from '../public/stride.png';
+import DuettoLogo from 'public/duettoLogo.svg';
+import SalesforceLogo from 'public/salesforceLogo.svg';
+import strideLogo from 'public/stride.png';
 
 const today = new Date();
 
