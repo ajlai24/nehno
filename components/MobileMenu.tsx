@@ -6,12 +6,12 @@ import {
   List,
   ListItemButton,
   ListItemText,
-  SwipeableDrawer
+  SwipeableDrawer,
 } from '@mui/material';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
-import { routes } from '../utils/routes';
+import { routes } from 'utils/routes';
 
 const MobileMenu = () => {
   const [drawerOpen, setDrawerOpen] = useState(false);

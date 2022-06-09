@@ -1,9 +1,9 @@
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import { Box, Button, Container, Typography } from '@mui/material';
+import OverlineBox from 'components/OverlineBox';
+import Section from 'components/Section';
 import { motion } from 'framer-motion';
 import NextLink from 'next/link';
-import OverlineBox from '../components/OverlineBox';
-import Section from '../components/Section';
 
 const Hero = () => (
   <Section sx={{ py: { lg: 20 } }}>

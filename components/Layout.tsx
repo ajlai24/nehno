@@ -18,7 +18,7 @@ const Layout = ({ children, title = 'nehno.com', meta }: Props) => {
     "A frontend developer's playground for learning and experimentation";
 
   return (
-    <Box display="flex" flexDirection="column" height="100%">
+    <Box display="flex" flexDirection="column" minHeight="100vh">
       <Head>
         <title>{title}</title>
         <link rel="shortcut icon" href="/images/favicon.ico" />
@@ -59,21 +59,9 @@ const Layout = ({ children, title = 'nehno.com', meta }: Props) => {
         <meta property="twitter:title" content={title} />
         <meta property="twitter:description" content={description} />
         <meta property="twitter:image" content={metaImage} />
-
-        <style>
-          {`
-            #__next {
-              height: 100%;
-            }
-          `}
-        </style>
       </Head>
       <AppNav />
-      <Box
-        sx={{
-          flex: '1 1 auto',
-        }}
-      >
+      <Box flex="1 1 auto">
         <TransitionGroup>
           <Fade timeout={500}>
             <Box>{children}</Box>

@@ -1,6 +1,6 @@
 import { Avatar, Box, Grid, Typography } from '@mui/material';
-import { StyledPaper } from '../CardButton';
-import Link from '../Link';
+import { StyledPaper } from 'components/CardButton';
+import Link from 'components/Link';
 
 const cards = [
   {

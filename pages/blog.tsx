@@ -5,8 +5,9 @@ import PreviewSnackbar from 'components/PreviewSnackbar';
 import Section from 'components/Section';
 import SectionHeader from 'components/SectionHeader';
 import SkeletonCard from 'components/SkeletonCard';
-import { GetAllPostsForBlogPageQuery } from 'lib/generated/graphql';
+import { GetAllPostsForBlogPageQuery, Post } from 'lib/generated/graphql';
 import { getAllPostsForBlogPage } from 'lib/graphcms';
+import { NextPage } from 'next';
 import { useRouter } from 'next/router';
 import { TransitionGroup } from 'react-transition-group';
 
@@ -46,7 +47,12 @@ const BlogPosts = ({
   </>
 );
 
-const Blog = ({ posts, preview }) => {
+interface BlogProps {
+  posts: Post[];
+  preview: boolean;
+}
+
+const Blog: NextPage = ({ posts, preview }: BlogProps) => {
   const router = useRouter();
 
   return (
