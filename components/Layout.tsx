@@ -61,11 +61,7 @@ const Layout = ({ children, title = 'nehno.com', meta }: Props) => {
         <meta property="twitter:image" content={metaImage} />
       </Head>
       <AppNav />
-      <Box
-        sx={{
-          flex: '1 1 auto',
-        }}
-      >
+      <Box flex="1 1 auto">
         <TransitionGroup>
           <Fade timeout={500}>
             <Box>{children}</Box>
