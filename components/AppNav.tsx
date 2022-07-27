@@ -1,6 +1,6 @@
 import { AppBar, Box, Container, styled, Toolbar } from '@mui/material';
 import Logo from './Logo';
-import NavLinks from './NavMenu';
+import NavMenu from './NavMenu';
 
 const StyledAppBar = styled(AppBar)(({ theme }) => ({
   boxShadow: 'none',
@@ -23,7 +23,7 @@ const AppNav = () => (
             width="100%"
           >
             <Logo />
-            <NavLinks />
+            <NavMenu />
           </Box>
         </Toolbar>
       </Container>
