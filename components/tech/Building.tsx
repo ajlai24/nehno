@@ -1,6 +1,6 @@
 import { Box, Card, Grid, Typography, useTheme } from '@mui/material';
-import NextjsLogo from 'public/nextjsLogo.svg';
 import Link from 'components/Link';
+import NextjsLogo from 'public/nextjsLogo.svg';
 import NumberedSection from './NumberedSection';
 import Paragraph from './Paragraph';
 

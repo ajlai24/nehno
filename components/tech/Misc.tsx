@@ -6,7 +6,7 @@ const cards = [
   {
     id: 'vscode',
     header: 'IDE',
-    src: 'vscode.svg',
+    src: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg',
     body: (
       <Typography>
         For frontend development, I&apos;ve tried Atom, Intellij / Webstorm,
@@ -20,7 +20,7 @@ const cards = [
   {
     id: 'lint',
     header: 'Lint',
-    src: 'eslintLogo.svg',
+    src: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/eslint/eslint-original.svg',
     body: (
       <Typography>
         I always use eslint as it&apos;s a good way to find and fix issues with
@@ -55,7 +55,7 @@ const cards = [
   {
     id: 'typescript',
     header: 'Typescript',
-    src: 'tsLogo.svg',
+    src: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg',
     body: (
       <>
         <Typography>

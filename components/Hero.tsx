@@ -39,7 +39,7 @@ const Hero = () => (
             Next.js, Vercel, MUI, and Typescript
           </Typography>
         </Box>
-        <Box>
+        <Box display="flex" justifyContent={{ xs: 'center', lg: 'flex-start' }}>
           <NextLink href="/tech" passHref>
             <Button
               sx={{ mt: 2 }}

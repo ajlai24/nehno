@@ -1,5 +1,5 @@
 import GitHubIcon from '@mui/icons-material/GitHub';
-import { Button, Typography } from '@mui/material';
+import { Box, Button, Typography } from '@mui/material';
 
 const Intro = () => (
   <>
@@ -10,17 +10,19 @@ const Intro = () => (
       code is sometimes more helpful so if you&apos;re not too interested in
       reading feel free to jump to the
     </Typography>
-    <Button
-      sx={{ mt: 1 }}
-      component="a"
-      variant="contained"
-      endIcon={<GitHubIcon />}
-      href="https://github.com/ajlai24/nehno"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      Source Code
-    </Button>
+    <Box display="flex" justifyContent={{ xs: 'center', lg: 'flex-start' }}>
+      <Button
+        sx={{ mt: 1 }}
+        component="a"
+        variant="contained"
+        endIcon={<GitHubIcon />}
+        href="https://github.com/ajlai24/nehno"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Source Code
+      </Button>
+    </Box>
   </>
 );
 

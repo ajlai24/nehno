@@ -10,14 +10,16 @@ const cards = [
     header: 'React',
     subheader: 'A JavaScript library for building user interfaces',
     url: 'https://www.reactjs.org',
-    avatarSrc: 'reactLogo.svg',
+    avatarSrc:
+      'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg',
   },
   {
     id: 'mui',
     header: 'MUI',
     subheader: 'A very comprehensive suite of UI Tools and component library',
     url: 'https://mui.com/',
-    avatarSrc: 'muiLogo.svg',
+    avatarSrc:
+      'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/materialui/materialui-original.svg',
   },
   {
     id: 'storybook',
@@ -25,21 +27,24 @@ const cards = [
     subheader:
       'One of my favorite tools to build, preview, and test UI components',
     url: 'https://storybook.js.org/',
-    avatarSrc: 'storybookLogo.png',
+    avatarSrc:
+      'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/storybook/storybook-original.svg',
   },
   {
     id: 'webpack',
     header: 'Webpack',
     subheader: 'Powerful and highly configurable module bundler',
     url: 'https://webpack.js.org/',
-    avatarSrc: 'webpackLogo.svg',
+    avatarSrc:
+      'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/webpack/webpack-original.svg',
   },
   {
     id: 'nodejs',
     header: 'Node.js',
     subheader: 'A JavaScript runtime for scalable network applications',
     url: 'https://nodejs.org/',
-    avatarSrc: 'nodejsLogo.svg',
+    avatarSrc:
+      'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg',
   },
   {
     id: 'graphql',
@@ -47,7 +52,8 @@ const cards = [
     subheader:
       'Great query language so the client can request exactly what it needs',
     url: 'https://graphql.org/',
-    avatarSrc: 'graphqlLogo.svg',
+    avatarSrc:
+      'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/graphql/graphql-plain.svg',
   },
   {
     id: 'reactrouter',
@@ -61,7 +67,8 @@ const cards = [
     header: 'Typescript',
     subheader: 'Strongly typed javascript',
     url: 'https://www.typescriptlang.org/',
-    avatarSrc: 'tsLogo.svg',
+    avatarSrc:
+      'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg',
   },
 ];
 
@@ -74,7 +81,7 @@ const TechInterestsSection = () => (
         </Typography>
       </OverlineBox>
       <Grid container spacing={4} mt={2}>
-        {cards.map((card, index) => (
+        {cards.map((card) => (
           <Grid xs={12} sm={6} md={4} lg={3} item key={card.id}>
             <motion.div
               initial={{
@@ -86,9 +93,8 @@ const TechInterestsSection = () => (
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{
-                duration: 0.9,
+                duration: 0.7,
                 ease: [0.4, 0, 0.2, 1],
-                delay: 0.1 * index,
               }}
             >
               <TechCardButton {...card} />

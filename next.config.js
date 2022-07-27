@@ -1,6 +1,6 @@
 module.exports = {
   images: {
-    domains: ['media.graphassets.com'],
+    domains: ['media.graphassets.com', 'cdn.jsdelivr.net'],
   },
   reactStrictMode: true,
   webpack(config) {
