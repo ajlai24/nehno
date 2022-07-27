@@ -6,7 +6,7 @@ import { useContext } from 'react';
 import DesktopMenu from './DesktopMenu';
 import MobileMenu from './MobileMenu';
 
-const NavLinks = () => {
+const NavMenu = () => {
   const theme = useTheme();
   const { darkMode, toggleDarkMode } = useContext(ColorModeContext);
 
@@ -27,4 +27,4 @@ const NavLinks = () => {
   );
 };
 
-export default NavLinks;
+export default NavMenu;
