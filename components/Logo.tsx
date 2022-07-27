@@ -58,6 +58,7 @@ const StyledMuiLink = styled(MuiLink)(({ theme }) => ({
   fontWeight: '800',
   textDecoration: 'none',
   width: '100%',
+  WebkitTapHighlightColor: 'transparent',
 
   '&.animate': {
     animation: `${mainFadeIn} 2s forwards`,
