@@ -7,7 +7,7 @@ const StyledAppBar = styled(AppBar)(({ theme }) => ({
   borderBottom: `1px solid ${
     theme.palette.mode === 'dark'
       ? theme.palette.divider
-      : theme.palette.grey[300]
+      : theme.palette.grey[200]
   }`,
 }));
 
@@ -28,7 +28,7 @@ const AppNav = () => (
         </Toolbar>
       </Container>
     </StyledAppBar>
-    <Toolbar id="back-to-top-anchor"/>
+    <Toolbar id="back-to-top-anchor" />
   </>
 );
 

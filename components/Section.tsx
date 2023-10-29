@@ -24,7 +24,7 @@ const StyledBox = styled(Box, {
     padding: theme.spacing(8, 0),
   },
   [theme.breakpoints.up('lg')]: {
-    padding: theme.spacing(12, 0),
+    padding: theme.spacing(10, 0),
   },
 }));
 

@@ -1,5 +1,5 @@
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
-import { Box, Container, Typography } from '@mui/material';
+import { Box, Chip, Container, Typography } from '@mui/material';
 import Fab from '@mui/material/Fab';
 import Layout from 'components/Layout';
 import Link from 'components/Link';
@@ -63,6 +63,8 @@ const anchors: AnchorInfo[] = [
   },
 ];
 
+const chips = ['React', 'Next.js', 'MUI', 'GraphCMS', 'Typescript', 'Vercel'];
+
 const TechPage: NextPage = () => (
   <Layout title="Tech | nehno.com" meta="tech">
     <Section>
@@ -73,6 +75,16 @@ const TechPage: NextPage = () => (
               title="Tech talk"
               subtitle="A place to describe all the nifty stuff used to build this site"
             />
+
+            {chips.map((chipLabel) => (
+              <Chip
+                key={chipLabel}
+                label={chipLabel}
+                color="info"
+                size="small"
+                sx={{ mr: .5 }}
+              />
+            ))}
 
             {anchors.map(({ id, label, children }) => (
               <TextSection key={id} header={label} id={id}>

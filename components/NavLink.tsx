@@ -48,18 +48,19 @@ const NavLink = ({ name, path, label }: NavLinkProps) => {
   const router = useRouter();
 
   return (
-    <Link href={path} passHref key={name}>
-      <StyledLink
-        selected={router.pathname === path}
-        py={1}
-        ml={5}
-        fontWeight="fontWeightBold"
-        display="block"
-        position="relative"
-      >
-        {label}
-      </StyledLink>
-    </Link>
+    <StyledLink
+      selected={router.pathname === path}
+      py={1}
+      ml={5}
+      fontWeight="fontWeightBold"
+      display="block"
+      position="relative"
+      component={Link}
+      href={path}
+      key={name}
+    >
+      {label}
+    </StyledLink>
   );
 };
 

@@ -1,5 +1,5 @@
 import { createTheme, ThemeOptions } from '@mui/material';
-import { blueGrey } from '@mui/material/colors';
+import { blue, blueGrey } from '@mui/material/colors';
 
 const components: ThemeOptions['components'] = {
   MuiLink: {
@@ -27,6 +27,7 @@ const baseTheme = {
   },
   components,
   palette: {
+    primary: blue,
     secondary: blueGrey,
   },
 };
@@ -37,10 +38,12 @@ const darkTheme = createTheme({
   ...baseTheme,
   palette: {
     mode: 'dark',
-    secondary: blueGrey,
+    // secondary: blueGrey,
     background: {
-      paper: '#313940',
-      default: '#1e1e1e',
+      // paper: '#313940',
+      // default: '#1e1e1e',
+      paper: '#070e2e',
+      default: '#02091e',
     },
   },
 });

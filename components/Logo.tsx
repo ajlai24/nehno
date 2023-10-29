@@ -2,6 +2,7 @@ import {
   Box,
   keyframes,
   Link as MuiLink,
+  LinkProps as MuiLinkProps,
   styled,
   Typography,
 } from '@mui/material';
@@ -49,7 +50,7 @@ const mainFadeIn = keyframes`
 //   }
 // `;
 
-const StyledMuiLink = styled(MuiLink)(({ theme }) => ({
+const StyledMuiLink = styled(MuiLink)<MuiLinkProps>(({ theme }) => ({
   position: 'relative',
   display: 'flex',
   alignItems: 'center',
@@ -122,21 +123,19 @@ const Logo = () => {
 
   return (
     <Box>
-      <Link href="/" passHref>
-        <StyledMuiLink className={clsx({ animate })}>
-          <Typography
-            variant="h4"
-            className="logoHover"
-            data-content="NEHNO"
-            aria-hidden="true"
-            fontWeight="fontWeightBold"
-          />
-          <Typography variant="h4" fontWeight="fontWeightBold">
-            NEHNO
-          </Typography>
-          {/* <span className={clsx('dot', { animate })} /> */}
-        </StyledMuiLink>
-      </Link>
+      <StyledMuiLink className={clsx({ animate })} href="/" component={Link}>
+        <Typography
+          variant="h4"
+          className="logoHover"
+          data-content="NEHNO"
+          aria-hidden="true"
+          fontWeight="fontWeightBold"
+        />
+        <Typography variant="h4" fontWeight="fontWeightBold">
+          NEHNO
+        </Typography>
+        {/* <span className={clsx('dot', { animate })} /> */}
+      </StyledMuiLink>
     </Box>
   );
 };

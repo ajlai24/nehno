@@ -23,9 +23,13 @@ const TableOfContents = ({ anchors }: { anchors: AnchorInfo[] }) => {
         <Typography variant="overline">Contents</Typography>
         {anchors.map((anchorInfo) => (
           <Box key={anchorInfo.id} mt={1}>
-            <Link href={`#${anchorInfo.id}`} passHref>
-              <MuiLink variant="subtitle1">{anchorInfo.label}</MuiLink>
-            </Link>
+            <MuiLink
+              href={`#${anchorInfo.id}`}
+              component={Link}
+              variant="subtitle1"
+            >
+              {anchorInfo.label}
+            </MuiLink>
           </Box>
         ))}
       </nav>

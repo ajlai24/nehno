@@ -1,6 +1,15 @@
 module.exports = {
   images: {
-    domains: ['media.graphassets.com', 'cdn.jsdelivr.net'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'media.graphassets.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'cdn.jsdelivr.net',
+      },
+    ],
   },
   reactStrictMode: true,
   webpack(config) {

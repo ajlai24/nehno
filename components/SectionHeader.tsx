@@ -8,7 +8,7 @@ interface PageHeaderProps {
 
 const SectionHeader = ({ title, subtitle }: PageHeaderProps) => (
   <OverlineBox>
-    <Typography variant="h2" component="span" fontWeight="fontWeightBold">
+    <Typography variant="h3" component="span" fontWeight="fontWeightBold">
       {title}
     </Typography>
     <Typography variant="h6" mt={2} color="text.secondary">

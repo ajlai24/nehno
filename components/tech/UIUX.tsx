@@ -46,9 +46,16 @@ const UIUX = () => (
       UI.
     </Typography>
 
-    <Box p={3}>
+    <Box p={3} position="relative">
       <Link href="https://mui.com/">
-        <Image src={MuiPreview} alt="mui" />
+        <Image
+          src={MuiPreview}
+          alt="mui"
+          style={{
+            width: '100%',
+            height: 'auto',
+          }}
+        />
       </Link>
     </Box>
 

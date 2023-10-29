@@ -109,7 +109,7 @@ const ContactCard = () => (
       variant="outlined"
     >
       <Typography variant="h6" fontWeight={300} textAlign="center">
-        Want to work together on something interesting?
+        Interested in working together?
       </Typography>
       <Box display="flex" justifyContent="center">
         <Button
@@ -120,7 +120,7 @@ const ContactCard = () => (
           target="_blank"
           rel="sponsored noopener"
         >
-          Contact me on
+          Get in touch
         </Button>
       </Box>
     </Card>
@@ -141,7 +141,15 @@ const WorkExperience = () => (
         transition={{ duration: 0.7, ease: [0.4, 0, 0.2, 1] }}
       >
         <Box maxWidth="40rem" sx={{ background: 'white', p: 2, boxShadow: 2 }}>
-          <Image src={workDesk} alt="Work Desk" placeholder="blur" />
+          <Image
+            src={workDesk}
+            alt="Work Desk"
+            placeholder="blur"
+            style={{
+              width: '100%',
+              height: 'auto',
+            }}
+          />
         </Box>
       </motion.div>
     </Grid>

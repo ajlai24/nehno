@@ -20,10 +20,10 @@ const StyledBox = styled(Box)(({ theme }) => ({
 const CompaniesSection = () => (
   <Section
     sx={(theme) => ({
-      backgroundColor:
+      backgroundColor: 
         theme.palette.mode === 'dark'
           ? theme.palette.background.paper
-          : blue[900],
+          : blue[800],
       py: {
         md: 16,
         lg: 18,
