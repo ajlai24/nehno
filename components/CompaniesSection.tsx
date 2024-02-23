@@ -3,6 +3,7 @@ import { blue } from '@mui/material/colors';
 import Section from 'components/Section';
 import Image from 'next/image';
 import DuettoLogo from 'public/duettoLogo.svg';
+import MatchdayLogo from 'public/matchdayLogo.svg';
 import SalesforceLogo from 'public/salesforceLogo.svg';
 import strideLogo from 'public/stride.png';
 
@@ -20,25 +21,20 @@ const StyledBox = styled(Box)(({ theme }) => ({
 const CompaniesSection = () => (
   <Section
     sx={(theme) => ({
-      backgroundColor: 
+      backgroundColor:
         theme.palette.mode === 'dark'
           ? theme.palette.background.paper
           : blue[800],
       py: {
-        md: 16,
-        lg: 18,
+        md: 6,
+        lg: 10,
       },
     })}
   >
     <Container>
-      <Box>
-        <Grid
-          container
-          spacing={{ xs: 4, md: 3 }}
-          columns={{ xs: 4, sm: 8, md: 12 }}
-          alignItems="center"
-        >
-          <Grid item xs={12} md={4}>
+      <Box sx={{ flexGrow: 1 }}>
+        <Grid container spacing={{ xs: 4, md: 3 }}>
+          <Grid item xs={12} md={6} lg={3}>
             <StyledBox>
               <a
                 href="https://www.duettocloud.com/"
@@ -49,7 +45,7 @@ const CompaniesSection = () => (
               </a>
             </StyledBox>
           </Grid>
-          <Grid item xs={12} md={4}>
+          <Grid item xs={12} md={6} lg={3}>
             <StyledBox width="100%" textAlign="center">
               <a
                 href="https://www.salesforce.com/"
@@ -61,7 +57,7 @@ const CompaniesSection = () => (
             </StyledBox>
           </Grid>
 
-          <Grid item xs={12} md={4}>
+          <Grid item xs={12} md={6} lg={3}>
             <StyledBox
               sx={{ width: '100%', height: '2.5rem', position: 'relative' }}
             >
@@ -88,16 +84,28 @@ const CompaniesSection = () => (
               </a>
             </StyledBox>
           </Grid>
+
+          <Grid item xs={12} md={6} lg={3}>
+            <StyledBox width="100%" textAlign="center">
+              <a
+                href="https://matchday.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <MatchdayLogo height="40" />
+              </a>
+            </StyledBox>
+          </Grid>
         </Grid>
       </Box>
       <Box
         display="flex"
         justifyContent="center"
         mt={{
-          xs: 5,
-          sm: 6,
-          md: 8,
-          lg: 14,
+          xs: 2,
+          sm: 4,
+          md: 6,
+          lg: 8,
         }}
       >
         <Typography
