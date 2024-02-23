@@ -1,7 +1,7 @@
 import { Avatar, AvatarGroup, Box, Typography } from '@mui/material';
 import { format, parseISO } from 'date-fns';
 import { GetPostAndMorePostsQuery } from 'lib/generated/graphql';
-import NextImage from 'next/image';
+import Image from 'next/image';
 
 interface PostHeaderProps {
   title: GetPostAndMorePostsQuery['post']['title'];
@@ -39,8 +39,14 @@ const PostHeader = (props: PostHeaderProps) => {
         </Box>
       </Box>
       <Box boxShadow={3} fontSize={0}>
-        <NextImage
-          style={{ boxShadow: '0 5px 10px rgb(0 0 0 / 12%)' }}
+        asdf
+        <Image
+          style={{
+            boxShadow: '0 5px 10px rgb(0 0 0 / 12%)',
+            width: '100%',
+            height: 'auto',
+          }}
+          sizes="100vw"
           width={2000}
           height={1000}
           alt={`Cover Image for ${title}`}

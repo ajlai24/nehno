@@ -48,7 +48,11 @@ const BlogPost = ({ post, preview, morePosts }: BlogPostProps) => {
             <article>
               <Head>
                 <title>{post.title}</title>
-                <meta property="og:image" content={post.ogImage.url} />
+                <meta
+                  property="og:image"
+                  content={post.ogImage.url}
+                  key="title"
+                />
               </Head>
               <PostHeader
                 title={post.title}

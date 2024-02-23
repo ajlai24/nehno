@@ -54,6 +54,11 @@ const BlogPostCard = ({
         <Image
           height={190}
           width={360}
+          style={{
+            width: '100%',
+            height: 'auto',
+          }}
+          sizes="100vw"
           alt={`Cover Image for ${title}`}
           src={url}
         />
